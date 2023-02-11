@@ -10,7 +10,7 @@ const saveKitchenPlan = (req, res) => {
     
     let kitchenPlanObj = new KitchenPlan(req.body);
 
-    location.save()
+    kitchenPlanObj.save()
     .then(result=>{
     
         const resObj = {
