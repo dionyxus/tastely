@@ -16,3 +16,6 @@ app.set('port', process.env.PORT || 8080);
 
 let server = app.listen(app.settings.port, () => console.log('listening on ', app.settings.port));
 
+app.get("/",(res,req) => {
+    res.status(404).json({error:"Page not found for now"});
+});
