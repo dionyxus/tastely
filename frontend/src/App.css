@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+input[type=text] {
+  width: 30%;
+}
+
+input[type=password] {
+  width: 30%;
+}
+
+input[type=email] {
+  width: 30%;
+}
