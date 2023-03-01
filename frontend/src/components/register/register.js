@@ -67,11 +67,14 @@ const Register = () => {
         <label>Postal Code  </label> <br></br>
         <input type="text" name="postalcode" value={user.postalcode} placeholder="Enter Postal Code" onChange={handleChange} ></input><br></br>
         <label>Contact </label> <br></br>
-        <input type="text" name="contact" value={user.contact} placeholder="Enter your contact" onChange={handleChange} ></input><br></br>
+       
+       <div>
+       <input type="text" name="contact" value={user.contact} placeholder="Enter your contact" onChange={handleChange} ></input><br></br>
         <button className="button" onClick={register}>Register</button>
         <div>or</div>
         <button className="button">Already have an account?<Link to="/login">Login Here</Link></button>
         </div>
+       </div> 
         </div>
     )
     }

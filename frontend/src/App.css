@@ -48,3 +48,47 @@ input[type=password] {
 input[type=email] {
   width: 30%;
 }
+
+.my-button {
+  background-color: #4CAF50; /* Green background color */
+  border: none; /* Remove border */
+  color: white; /* White text color */
+  padding: 12px 24px; /* Add padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make button inline */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Add cursor pointer */
+  border-radius: 4px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.my-button:hover {
+  background-color: #3e8e41; /* Change background color on hover */
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px;
+  width: 300px;
+}
+
+ul{
+  list-style: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 3 equal columns */
+  grid-template-rows: repeat(2, 330px); /* Creates 2 rows with a height of 100px */
+  gap: 10px; /* Adds a 10px gap between grid items */
+  list-style: none;
+}
+
+.grid-item {
+  background-color: #ddd;
+  padding: 10px;
+  text-align: center;
+}
