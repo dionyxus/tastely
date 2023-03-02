@@ -1,15 +1,9 @@
-const express = require("express");
-const path = require('path');
-const cors = require('cors');
-const app = express()
-app.use(express.json())
 
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 const bodyParser = require("body-parser");
 const router = require('./routes');
+
+app.use(cors());
 
 require('./models/db');
 app.set("/api/v1", router);

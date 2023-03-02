@@ -15,6 +15,7 @@ import Header from './components/homepage/header';
 // import Header from './components/homepage/header';
 
 import './App.css';
+import DishPage from './components/dishes/DishPage'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SingleUserKitchens from './components/homepage/singlekitchenownerplans';
