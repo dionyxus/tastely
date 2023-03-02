@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import { useState, useEffect } from 'react';
 import { Link, Outlet} from 'react-router-dom'
 import Homepage from './components/homepage/homepage';

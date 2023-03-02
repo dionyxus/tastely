@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from './header';
 import ShowPlan from '../showplan/showplan';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import "./allkitchens.css"
+// import "./allkitchens.css"
 
 const AllKitchens = (props) => {
   
@@ -39,11 +39,11 @@ const AllKitchens = (props) => {
     <div className="homepage">
       <div>
         <h2>EXPOLORE ALL REGISTERED KITCHENS</h2>
-        <ul class="grid-container">
+        <ul className="grid-container">
           {allKitchens.map((kitchen) =>
             
             kitchen.usertype === "Owner" ? (
-              <li class="grid-item" key={kitchen._id}>
+              <li className="grid-item" key={kitchen._id}>
               <img src={imageUrl} alt="Example" />
                 <p>Kitchen - {kitchen.name}</p>
                 <button className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >View Plan</button><br></br><br></br>

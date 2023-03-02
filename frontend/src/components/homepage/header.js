@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
-import "./header.css"
+// import "./header.css"
 
 // import Logo from "./Logo.svg";
 
