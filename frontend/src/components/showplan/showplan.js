@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import KitchenHeader from '../homepage/kitchenheader';
-// import { Link, Outlet } from 'react-router-dom';
 
 const ShowPlan = (props) => {
   const [showplans, setShowPlans] = useState([]);
@@ -56,15 +55,13 @@ const ShowPlan = (props) => {
                   })}
                 </ul>
                 <button onClick={() => handleDeleteClick(showplan._id)}>
-                          Delete Plan
-                        </button>
+                  Delete Plan
+                </button>
               </li>
-              
             ) : (
               ''
             );
           })}
-          
         </ul>
       </div>
     </div>
@@ -73,8 +70,3 @@ const ShowPlan = (props) => {
 
 export default ShowPlan;
 
-//props.loginUser._id == showplan.user ?
-
-// <button onClick={() => handleDeleteClick(showplan._id)}>
-//                           Delete Plan
-//                         </button>

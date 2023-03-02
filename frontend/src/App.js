@@ -11,6 +11,7 @@ import ShowPlan from './components/showplan/showplan';
 import ShowSubscribePlan from './components/homepage/subscribeplan';
 import ShowCustomerSubscribePlan from './components/homepage/showcustomersubscribeplan';
 import Header from './components/homepage/header';
+import MyProfile from './components/homepage/myprofile';
 
 // import Header from './components/homepage/header';
 
@@ -51,6 +52,7 @@ const App = (props) => {
           <Route exact path="/register" element={<Register loginUser = {loginUser} setLoginUser = {setLoginUser}  />} />
           <Route exact path="/createplan" element={<CreatePlan loginUser = {loginUser} setLoginUser = {setLoginUser}/>} />
           <Route exact path="/showplan" element={<ShowPlan loginUser = {loginUser} setLoginUser = {setLoginUser}/>} />
+          <Route exact path="/myprofile" element={<MyProfile loginUser = {loginUser} setLoginUser = {setLoginUser}/>} />
           <Route exact path="/showsubscribeplans/:userid" element={<ShowSubscribePlan loginUser = {loginUser} setLoginUser = {setLoginUser}/>} />
           <Route exact path="/showcustomersubscribeplans" element={<ShowCustomerSubscribePlan loginUser = {loginUser} setLoginUser = {setLoginUser}/>} />
 
@@ -64,19 +66,4 @@ const App = (props) => {
 
 export default App;
 
-// <header className="App-header">
-      //   <img src={logo} className="App-logo" alt="logo" />
-      //   <p>
-      //     Edit <code>src/App.js</code> and save to reload.
-      //   </p>
-      //   <a
-      //     className="App-link"
-      //     href="https://reactjs.org"
-      //     target="_blank"
-      //     rel="noopener noreferrer"
-      //   >
-      //     Learn React
-      //   </a>
-      // </header>
 
-      // lll

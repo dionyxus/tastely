@@ -21,7 +21,7 @@ const KitchenHeader = (props) => {
         <NavLink to="/owner">Kitchen Dashboard -   </NavLink>
             <NavLink to="/createplan">Create Your Plan - </NavLink>
           <NavLink to="/showplan">Show my plans</NavLink><br></br><br></br>
-
+          <NavLink to="/myprofile">View my profile</NavLink><br></br><br></br>
            <button className="my-button" onClick={(props) => handleViewCustomerSubscribePlanClick(loginUser)} >View My Customers</button>
 
             <button className="button"><Link to="/Login">Logout</Link></button><br></br>

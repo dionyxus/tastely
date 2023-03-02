@@ -70,16 +70,7 @@ const SingleUserKitchens = (props) => {
     }
   };
 
-  // const removeFavorite = (id) => {
-  //   let index = favorite.indexOf(id);
-  //   console.log(index);
-  //   let temp = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
-  //   setFavorite(temp);
-  // };
-
-  // let findfavorite = singleKitchenOwnerPlans.filter((singleKitchenOwnerPlan) =>
-  //   favorite.includes(singleKitchenOwnerPlan._id),
-  // );
+ 
 
   return (
     <div className="homepage">
