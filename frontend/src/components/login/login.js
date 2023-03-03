@@ -39,7 +39,7 @@ const handleChange = (e) => {
         // setRedirect(true)
         // props.grabUserData(res.data);
         if (res.data.user.usertype === 'Customer') {
-          navigate('/');
+          navigate('/home');
         }
         if (res.data.user.usertype === 'Owner') {
           navigate('/owner');

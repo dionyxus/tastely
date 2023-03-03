@@ -2,11 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-<<<<<<< Updated upstream
 // import "./header.css"
-=======
-import './header.css';
->>>>>>> Stashed changes
 
 
 const Header = (props) => {

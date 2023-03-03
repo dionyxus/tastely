@@ -38,11 +38,7 @@ const AllKitchens = (props) => {
   return (
     <div className="homepage">
       <div>
-<<<<<<< Updated upstream
         <h2>EXPOLORE ALL REGISTERED KITCHENS</h2>
-=======
-        <h2>EXPLORE ALL REGISTERED KITCHENS</h2>
->>>>>>> Stashed changes
         <ul className="grid-container">
           {allKitchens.map((kitchen) =>
             

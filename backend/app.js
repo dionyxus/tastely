@@ -15,7 +15,8 @@ const router = require('./routes');
 app.use(cors());
 
 require('./models/db');
-app.set("/api/v1", router);
+
+app.use("/api/v1", router);
 
 app.set('port', process.env.PORT || 8080);
 
