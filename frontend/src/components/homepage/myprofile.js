@@ -1,12 +1,14 @@
 import { React } from 'react';
 import Header from './header';
 import AllKitchens from './allkitchens';
+import KitchenHeader from './kitchenheader';
 // import './myprofile.css';
 
 const MyProfile = (props) => {
   return (
     <div className="homepage">
       <div>
+      <KitchenHeader/>
         <h2>
           <h1>
           My Profile</h1>
