@@ -33,13 +33,13 @@ const handleChange = (e) => {
        
       .then((res) => {
         props.setLoginUser(res.data.user);
-        alert(" Congrats "+ res.data.user.name+ " Login Successfull");
+        alert(" Congrats "+ res.data.user.email+ " Login Successfull");
         localStorage.setItem('user', JSON.stringify(res.data.user))
         
         // setRedirect(true)
         // props.grabUserData(res.data);
         if (res.data.user.usertype === 'Customer') {
-          navigate('/');
+          navigate('/home');
         }
         if (res.data.user.usertype === 'Owner') {
           navigate('/owner');
@@ -61,21 +61,12 @@ const handleChange = (e) => {
   return (
     <div className="Login">
       <h1>Login</h1>
-   
-      <input
-        type="text"
-        name="email"
-        value={user.email}
-        placeholder="Enter your email"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="password"
-        name="password"
-        value={user.password}
-        placeholder="Enter your password"
-        onChange={handleChange}
-      ></input>
+      <label>Email  </label> <br></br>
+      <input type="email" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input><br></br>
+      <label>Password  </label> <br></br>
+      <input type="password" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input><br></br>
+      
+     
       <button className="button" onClick={login}>
         Login
       </button>
