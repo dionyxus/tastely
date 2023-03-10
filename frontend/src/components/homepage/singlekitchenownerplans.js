@@ -11,7 +11,6 @@ const SingleUserKitchens = (props) => {
   const [singleKitchenOwnerPlans, setSingleKitchenOwnerPlans] = useState([]);
 
   const [apiSuccess, setApiSuccess] = useState(false);
-  const navigate = useNavigate();
 
   // const [subscribeText, setSubscribeText] = useState("Subscribe")
 

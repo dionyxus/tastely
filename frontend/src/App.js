@@ -25,6 +25,8 @@ import MealPage from './components/meal/MealPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SingleUserKitchens from './components/homepage/singlekitchenownerplans';
 import CustomerOrderConfirmation from './components/orderpage/CustomerOrderConfirmation';
+//import Footer from './components/files/footer/Footer';
+//import KitchenHeader from './components/homepage/kitchenheader';
 
 const App = (props) => {
 
@@ -43,7 +45,7 @@ const App = (props) => {
   return (
     <div className="App">
 
-
+    
       <Router>
         <Routes>
 
@@ -64,11 +66,11 @@ const App = (props) => {
           <Route exact path="/showcustomersubscribeplans" element={<ShowCustomerSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/customerorder/:planid" element={<CustomerOrderConfirmation loginUser={loginUser} />} />
           <Route exact path="/setmealpage/:orderid" element={<MealPage loginUser={loginUser} />} />
+          <Route exact path="/adddishes/" element={<DishPage loginUser={loginUser} />} />
 
 
         </Routes>
       </Router>
-
 
     </div>
   );

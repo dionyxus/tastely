@@ -24,7 +24,7 @@ const Header = (props) => {
           <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
         View my subscribed plans
       </button>
-    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+    {/* <h2>{'Welcome ' + props.loginUser.name + ''}</h2> */}
     <button className="button">
       <Link to="/Login">Logout</Link>
     </button>

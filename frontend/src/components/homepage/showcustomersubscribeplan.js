@@ -48,7 +48,7 @@ const ShowCustomerSubscribePlan = (props) => {
       <h2> All customers </h2>
         <ul className="showplan-details">
           {showCustomerSubscribePlans.map((showCustomerSubscribePlan) => {
-            console.log(showCustomerSubscribePlan);
+//            console.log(showCustomerSubscribePlan);
             return props.loginUser.name ==
               showCustomerSubscribePlan.plan.username ? (
               <li key={showCustomerSubscribePlan._id}>

@@ -2,8 +2,12 @@ import Header from './Header'
 import Dishes from './Dishes'
 import { useState, useEffect } from "react";
 import AddDish from './AddDish';
+import KitchenHeader from '../homepage/kitchenheader';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import './DishesStyle.css';
 
-const DishPage = () => {
+const DishPage = (props) => {
 
     const API_URL = "http://localhost:8080/api/v1/dishes/";
 
@@ -60,11 +64,24 @@ const DishPage = () => {
     }
 
     return (
-        <div className="container">
-            <Header onAdd={() => setShowAddDish(!showAddDish)} showAdd={showAddDish} />
-            {showAddDish && <AddDish onAddDish={addDish} />}
-            <Dishes dishes={dishes} onDelete={deleteDish} />
+        <div className="">
+            <div className="side-menu-bar">
+                <KitchenHeader />
+            </div>
 
+            <div className="user-header">
+                <FaBell />
+                <FaEnvelope />
+                <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+                <button className="button">
+                    <Link to="/Login">Logout</Link>
+                </button>
+            </div>
+            <div className='container'>
+                <Header onAdd={() => setShowAddDish(!showAddDish)} showAdd={showAddDish} />
+                {showAddDish && <AddDish onAddDish={addDish} />}
+                <Dishes dishes={dishes} onDelete={deleteDish} />
+            </div>
         </div>
     )
 }

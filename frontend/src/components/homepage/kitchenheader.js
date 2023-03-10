@@ -17,16 +17,18 @@ const KitchenHeader = (props) => {
     <div className='header-logo'>
       <img src={logo} alt="Logo" />
       </div>
-      <NavLink to="/owner">Kitchen Dashboard  </NavLink>
-      <NavLink to="/createplan">Create Your Plan  </NavLink>
-      <NavLink to="/showplan">Show my plans  </NavLink>
-      <NavLink to="/myprofile">View my profile</NavLink>
+      <NavLink to="/owner">Dashboard</NavLink>
+      <NavLink to="/createplan">Create Plans</NavLink>
+      <NavLink to="/showplan">View Plans</NavLink>
+      <NavLink to="/adddishes">Add Dishes</NavLink>
+
+      <NavLink to="/myprofile">View Profile</NavLink>
 
       <NavLink to="/showcustomersubscribeplans"
         
         onClick={(props) => handleViewCustomerSubscribePlanClick(loginUser)}
       >
-        View My Customers
+        View Customers
       </NavLink>
 
       
