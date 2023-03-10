@@ -106,7 +106,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes }) => {
     }
 
     return (
-        <div>
+        <div style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
             {makeDishesMenu()}
             {showSaveButton && <Button text={"Save"} onClick={onClick} />}
         </div>

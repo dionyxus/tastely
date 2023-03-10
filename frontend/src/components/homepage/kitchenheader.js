@@ -15,7 +15,7 @@ const KitchenHeader = (props) => {
   return (
     <ul className="nav">
     <div className='header-logo'>
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Logo" style={{objectFit:"contain"}} />
       </div>
       <NavLink to="/owner">Dashboard</NavLink>
       <NavLink to="/createplan">Create Plans</NavLink>

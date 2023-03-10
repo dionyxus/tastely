@@ -144,7 +144,7 @@ const WeekCalender = ({ orderId }) => {
         );
 
         postMeal({
-            date: new Date( new Date().setDate(data.date)).toLocaleDateString(),
+            date: new Date(new Date().setDate(data.date)).toLocaleDateString(),
             dishes: data.dishes,
             customerId: userInfo.user._id,
             customerName: userInfo.user.name,
@@ -157,13 +157,13 @@ const WeekCalender = ({ orderId }) => {
 
     return (
         <div>
-
             {makeWeekCal()}
-            <br></br>
-            <br></br>
-            {enableDishesComp && <SelectDishes data={mealData} noOfDishes={noOfDishes} onClickSave={onSaveButtonClick} />}
-            <br></br>
-            {testingText}
+            <div className="container">
+                <br></br>
+                <br></br>
+                {enableDishesComp && <SelectDishes data={mealData} noOfDishes={noOfDishes} onClickSave={onSaveButtonClick} />}
+                <br></br>
+            </div>
         </div>
     )
 }

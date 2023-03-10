@@ -2,9 +2,10 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './header';
 import ShowPlan from '../showplan/showplan';
-import { Link, useParams, NavLink, useNavigate} from 'react-router-dom';
+import { Link, useParams, NavLink, useNavigate } from 'react-router-dom';
 import AllKitchens from './allkitchens';
 import SubscribePlan from './subscribeplan';
+import ViewDishes from '../dishes/ViewDishes';
 
 
 const SingleUserKitchens = (props) => {
@@ -81,47 +82,51 @@ const SingleUserKitchens = (props) => {
       alert('check all your inputs');
     }
     */
-   
+
     // Move Above Code to Order Page
     //Open Order Page
     navigate(`/customerorder/${id}`);
 
   };
 
- 
+
 
   return (
     <div className="homepage">
       <div>
-      
 
-      <Header />
-        
+
+        <Header />
+
 
         <div class="page-content">
 
-        
-        <h2>All plans</h2>
-        <div>
-        <ul className="showplan-details">
-          {singleKitchenOwnerPlans.map((singleKitchenOwnerPlan) => (
-            <li key={singleKitchenOwnerPlan._id}>
-              <p> {singleKitchenOwnerPlan.name}</p>
-              <p> {singleKitchenOwnerPlan.price}</p>
 
-              <button className="my-button"
-                onClick={() => subscribePlanClick(singleKitchenOwnerPlan._id,singleKitchenOwnerPlan.name )}
-              >
-                Subscribe
-              </button>
-            </li>
-          ))}
-        </ul>
+          <h2>All plans</h2>
+          <div>
+            <ul className="showplan-details">
+              {singleKitchenOwnerPlans.map((singleKitchenOwnerPlan) => (
+                <li key={singleKitchenOwnerPlan._id}>
+                  <p> {singleKitchenOwnerPlan.name}</p>
+                  <p> {singleKitchenOwnerPlan.price}</p>
+
+                  <button className="my-button"
+                    onClick={() => subscribePlanClick(singleKitchenOwnerPlan._id, singleKitchenOwnerPlan.name)}
+                  >
+                    Subscribe
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+          </div>
 
         </div>
-        
+
+        <br></br>
+        <ViewDishes/>
+
       </div>
-    </div>
     </div>
   );
 };

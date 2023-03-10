@@ -21,8 +21,8 @@ const MealPage = (props) => {
   return (
     <div>
       <Header />
-      <div className="">
-      <WeekCalender orderId={orderid} />
+      <div className="" style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
+        <WeekCalender orderId={orderid} />
       </div>
     </div>
   )

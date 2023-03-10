@@ -18,8 +18,8 @@ const CustomerOrderConfirmation = () => {
     const data = {
 
       user: JSON.parse(localStorage.getItem('user'))._id,
-       plan: planid,
-       
+      plan: planid,
+
     };
 
     console.log('data:', data);
@@ -35,23 +35,26 @@ const CustomerOrderConfirmation = () => {
           navigate(`/setmealpage/${res.data.data._id}`);
 
         });
-//      console.log(data);
+      //      console.log(data);
     } else {
       alert('check all your inputs');
     }
 
-    
+
 
   }
 
   return (
     <div>
       <Header />
-
-      Order Page<br></br>
-      Order Details
-      <br></br>
-      <Button text={"Confirm Order"} onClick={handleOnClickConfirm} />
+      <div className="container" >
+        <div style={{ marginLeft: "auto", marginRight: "auto", width: "50%" }}>
+        Order Page<br></br>
+        Order Details
+        <br></br>
+        <Button text={"Confirm Order"} onClick={handleOnClickConfirm} />
+        </div>
+      </div>
     </div>
   )
 }
