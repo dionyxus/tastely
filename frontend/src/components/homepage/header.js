@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import logo from './logo.png';
+// import logo from './logo.png';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // import "./header.css"
@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const Header = (props) => {
   const navigate = useNavigate();
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const loginUser = JSON.parse(localStorage.getItem('user'))._id;
 
@@ -18,21 +18,19 @@ const Header = (props) => {
 
   return (
     <div>
-      <div>
-        <ul className="nav">
-          
-          <NavLink to="/home">Customer Dashboard</NavLink>
+    <div className="user-header">
+    <NavLink to="/home">Homepage</NavLink>
           <NavLink to="/myprofile">View my profile</NavLink>
-
-          <button onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
-            View my subscribed plans
-          </button>
-
-          <NavLink to={`/showsubscribeplans/${id}`}>
-            View my subscribed plans
-          </NavLink>
-        </ul>
-      </div>
+          <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
+        View my subscribed plans
+      </button>
+    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+    <button className="button">
+      <Link to="/Login">Logout</Link>
+    </button>
+    
+      
+  </div>
     </div>
   );
 };
