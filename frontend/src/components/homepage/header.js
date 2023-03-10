@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import logo from './logo.png';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // import "./header.css"
 
-
 const Header = (props) => {
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   const loginUser = JSON.parse(localStorage.getItem('user'))._id;
 
@@ -15,22 +17,20 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header-background">
-      <div className="header header-max-width-div">
+    <div>
+      <div>
         <ul className="nav">
-          <NavLink to="/">Customer Dashboard</NavLink>
-          <br></br>
-          <br></br>
+          
+          <NavLink to="/home">Customer Dashboard</NavLink>
           <NavLink to="/myprofile">View my profile</NavLink>
-          <br></br>
-          <br></br>
+
           <button onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
             View my subscribed plans
           </button>
-          <button>
-            <Link to="/Login">Logout</Link>
-          </button>
-          <br></br>
+
+          <NavLink to={`/showsubscribeplans/${id}`}>
+            View my subscribed plans
+          </NavLink>
         </ul>
       </div>
     </div>
@@ -38,5 +38,3 @@ const Header = (props) => {
 };
 
 export default Header;
-
-

@@ -1,0 +1,58 @@
+.ownerpage {
+    position: relative;
+    padding-left: 300px;
+}
+
+.side-menu-bar {
+	position: absolute;
+	width: 300px;
+	min-height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: brown;
+	display: inline-block;
+    padding: 30px 15px;
+}
+
+.side-menu-bar ul {
+	font-size: 20px;
+    align-items: start;
+
+}
+
+.side-menu-bar ul a{
+	color: white;
+    padding: 10px;
+}
+
+
+.user-header {
+    margin: 0px;
+    padding: 10px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+}
+
+.user-header h2 {
+    margin: 0px;
+   font-size: 16px;
+}
+
+.user-header button {
+	margin: 0;
+}
+
+
+
+.user-header button a {
+    color: white;
+    text-decoration: none;
+}
+
+.page-content {
+	padding: 30px;
+}
+

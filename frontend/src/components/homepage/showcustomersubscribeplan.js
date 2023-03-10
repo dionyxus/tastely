@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import KitchenHeader from './kitchenheader';
+import "../ownerpage/ownerpage.css";
+import { FaBell, FaEnvelope } from 'react-icons/fa';
 // import { Link, Outlet } from 'react-router-dom';
 
 const ShowCustomerSubscribePlan = (props) => {
@@ -28,16 +30,28 @@ const ShowCustomerSubscribePlan = (props) => {
   }, [apiSuccess]);
 
   return (
-    <div>
-      <h2>Hi {props.loginUser.name} - Your all customers </h2>
-      <KitchenHeader />
-      <div className="showPlans">
-        <ul className="grid-container">
+    <div className='ownerpage'>
+      
+      <div className="side-menu-bar">
+          <KitchenHeader />
+        </div>
+      <div className="user-header">
+      <FaBell />
+      <FaEnvelope />
+      <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+      <button className="button">
+        <Link to="/Login">Logout</Link>
+      </button>
+    </div>
+    
+      <div className="page-content">
+      <h2> All customers </h2>
+        <ul className="showplan-details">
           {showCustomerSubscribePlans.map((showCustomerSubscribePlan) => {
             console.log(showCustomerSubscribePlan);
             return props.loginUser.name ==
               showCustomerSubscribePlan.plan.username ? (
-              <li className="grid-item" key={showCustomerSubscribePlan._id}>
+              <li key={showCustomerSubscribePlan._id}>
                 <p>Plan title - {showCustomerSubscribePlan.plan.name}</p>
                 <p>User Name - {showCustomerSubscribePlan.user.name}</p>
                 <p>User Contact - {showCustomerSubscribePlan.user.contact}</p>
