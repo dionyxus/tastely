@@ -31,8 +31,21 @@ router.post('/subscribeplan', (req, res) => {
       user: req.body.user,
     });
 
-    const saveItem = newSubscribePlan.save();
-    res.status(200).json(saveItem);
+    //const saveItem = newSubscribePlan.save();
+    //res.status(200).json(saveItem);
+    newSubscribePlan.save()
+    .then(result=>{
+    
+        const resObj = {
+            url: '/api/v1/subscribeplan/' + result._id,
+            data: result
+        };
+    
+        res.set('content-location', resObj.url);
+        res.status(201).json(resObj);
+    
+    });
+
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -78,7 +91,7 @@ router.get('/showplan/:userid', async (req, res) => {
     
     const userid = req.params.userid;
     
-    console.log(req.params.userid);
+//    console.log(req.params.userid);
     const singlekitchenplans = await createPlanModel.find({user:userid});
     res.status(200).json(singlekitchenplans);
   } catch (err) {

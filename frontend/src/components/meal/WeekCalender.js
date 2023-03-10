@@ -2,11 +2,13 @@ import WeekButton from "./WeekButton";
 import { useState, useEffect } from "react";
 import SelectDishes from "./SelectDishes";
 
-const WeekCalender = () => {
+const WeekCalender = ({orderId}) => {
 
     const MEAL_API_URL = "http://localhost:8080/api/v1/meal/";
+    const SUBSCRIPTION_API_URL = "http://localhost:8080/showcustomersubscribeplan";
 
-
+    const [userInfo,setUserInfo] = useState({});
+    //let userInfo;
     const currDate = new Date();
     const options = { weekday: "long" };
     const noOfDishesFromDB = 2;
@@ -49,6 +51,18 @@ const WeekCalender = () => {
         }
     ]);
 
+    useEffect(() =>{
+
+        fetch(SUBSCRIPTION_API_URL)
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(obj => {
+                    if(obj._id === orderId){
+                        setUserInfo(obj);
+                    }
+                });
+            });
+    },[]);
 
 
     const [mealData, setMealData] = useState([]);
@@ -113,7 +127,7 @@ const WeekCalender = () => {
                 return data;
             });
     }
-
+    
     const onSaveButtonClick = (data) => {
 
         if (data.dishes.length < noOfDishes) {
@@ -132,9 +146,9 @@ const WeekCalender = () => {
         postMeal({
             date: data.date,
             dishes: data.dishes,
-            customerId: "c1",
-            kitchenId: "k1",
-            planId:"p1"
+            customerId: userInfo.user._id,
+            kitchenId: userInfo.plan.user,
+            planId: userInfo.plan._id
         });
     };
 

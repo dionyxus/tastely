@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './header';
 import ShowPlan from '../showplan/showplan';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import AllKitchens from './allkitchens';
 import SubscribePlan from './subscribeplan';
 
@@ -11,6 +11,7 @@ const SingleUserKitchens = (props) => {
   const [singleKitchenOwnerPlans, setSingleKitchenOwnerPlans] = useState([]);
 
   const [apiSuccess, setApiSuccess] = useState(false);
+  const navigate = useNavigate();
 
   // const [subscribeText, setSubscribeText] = useState("Subscribe")
 
@@ -50,6 +51,8 @@ const SingleUserKitchens = (props) => {
     //   plan: id,
     // });
     // setSubscribeText("Subscribed");
+
+    /*
     const url = 'http://localhost:8080/subscribeplan';
 
     const data = {
@@ -68,6 +71,12 @@ const SingleUserKitchens = (props) => {
     } else {
       alert('check all your inputs');
     }
+    */
+   
+    // Move Above Code to Order Page
+    //Open Order Page
+    navigate(`/customerorder/${id}`);
+
   };
 
  

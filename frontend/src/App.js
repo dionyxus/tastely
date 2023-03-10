@@ -23,6 +23,7 @@ import MealPage from './components/meal/MealPage';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SingleUserKitchens from './components/homepage/singlekitchenownerplans';
+import CustomerOrderConfirmation from './components/orderpage/CustomerOrderConfirmation';
 
 const App = (props) => {
 
@@ -59,13 +60,13 @@ const App = (props) => {
           <Route exact path="/myprofile" element={<MyProfile loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/showsubscribeplans/:userid" element={<ShowSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/showcustomersubscribeplans" element={<ShowCustomerSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
+          <Route exact path="/customerorder/:planid" element={<CustomerOrderConfirmation loginUser={loginUser} />} />
+          <Route exact path="/setmealpage/:orderid" element={<MealPage loginUser={loginUser} />} />
 
 
         </Routes>
       </Router>
 
-      <DishPage />
-      <MealPage/>
 
     </div>
   );
