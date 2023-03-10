@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import landing from './landing.JPG';
 import "./register.css"
 
 const Register = () => {
@@ -46,36 +47,42 @@ const Register = () => {
 
 
     return (
-        <div>
-        <div className="Register">
-        <h1>Tastely Register</h1>
-        <div>
-        <label>User Type   </label> <br></br>
+        <div className="Login">
+
+        <div className="login-image">
+        <img src={landing} alt="Login Page" />
+      </div>
+
+        <div className="login-form">
+        
+
+        <h1>Create Your Free Account Here</h1>
+        <div className="user-type">
+        <label>User Type   </label> 
          <input type="radio" name="usertype" value="Owner" checked={user.usertype === "Owner" ? "Owner" : ""} onChange={handleChange}/>Owner
         <input type="radio" name="usertype" value="Customer" checked={user.usertype==="Customer" ? "Customer" : ""} onChange={handleChange}/>Customer
         </div>
-        <label>Name/Store Name  </label> <br></br>
-        <input type="text" name="name" value={user.name} placeholder="Enter your name" onChange={handleChange} ></input><br></br>
-        <label>Email  </label> <br></br>
-        <input type="email" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input><br></br>
-        <label>Password  </label> <br></br>
-        <input type="password" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input><br></br>
-        <label>Re-Enter Password  </label> <br></br>
-        <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter your  Password" onChange={handleChange}></input><br></br>
-        <label>Address  </label> <br></br>
-        <input type="text" name="address" value={user.address} placeholder="Enter your address" onChange={handleChange} ></input><br></br>
-        <label>Postal Code  </label> <br></br>
-        <input type="text" name="postalcode" value={user.postalcode} placeholder="Enter Postal Code" onChange={handleChange} ></input><br></br>
-        <label>Contact </label> <br></br>
+        <label>Name/Store Name  </label>
+        <input type="text" name="name" value={user.name} placeholder="Enter your name" onChange={handleChange} ></input>
+        <label>Email  </label> 
+        <input type="email" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input>
+        <label>Password  </label> 
+        <input type="password" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input>
+        <label>Re-Enter Password  </label> 
+        <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter your  Password" onChange={handleChange}></input>
+        <label>Address  </label> 
+        <input type="text" name="address" value={user.address} placeholder="Enter your address" onChange={handleChange} ></input>
+        <label>Postal Code  </label> 
+        <input type="text" name="postalcode" value={user.postalcode} placeholder="Enter Postal Code" onChange={handleChange} ></input>
+        <label>Contact </label> 
        
-       <div>
-       <input type="text" name="contact" value={user.contact} placeholder="Enter your contact" onChange={handleChange} ></input><br></br>
+       
+       <input type="text" name="contact" value={user.contact} placeholder="Enter your contact" onChange={handleChange} ></input>
         <button className="button" onClick={register}>Register</button>
-        <div>or</div>
-        <button className="button">Already have an account?<Link to="/login">Login Here</Link></button>
+       <div class="register-link"><Link to="/login">Already have an account?Login Here</Link></div>
         </div>
        </div> 
-        </div>
+        
     )
     }
 

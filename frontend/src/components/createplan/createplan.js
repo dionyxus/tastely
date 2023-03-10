@@ -2,6 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import KitchenHeader from '../homepage/kitchenheader';
+import '../ownerpage/ownerpage.css';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import './createplan.css';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
 //import DynamicFields from './dynamicfields';
 // import dynamicfield from '../../../../backend/models/dynamicfield';
 // import { Link, Outlet } from 'react-router-dom';
@@ -65,48 +69,60 @@ const CreatePlan = (props) => {
       dynamicfields: dynamicFields,
       user: createPlan.user,
       username: createPlan.username,
-      
     };
-    console.log("data:", data)
+    console.log('data:', data);
 
     if (name && price) {
       axios.post(url, data).then((res) => alert('Your plan has been created'));
-      console.log(data)
+      console.log(data);
     } else {
       alert('check all your inputs');
     }
   };
 
   return (
-    <div>
-      <KitchenHeader />
-      <div className="CreatePlan">
-        <h1>Hi {props.loginUser.name} - Create your plan</h1>
-        <label>Enter the name </label>
-        <br></br>
-        <input
-          type="text"
-          name="name"
-          value={createPlan.name}
-          placeholder="Enter plan's name"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <label>Enter the price </label>
-        <br></br>
-        <input
-          type="text"
-          name="price"
-          value={createPlan.price}
-          placeholder="Enter plan's price"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <br></br>
-        <form onSubmit={submit}>
+    <div className="ownerpage">
+      <div className="side-menu-bar">
+        <KitchenHeader />
+      </div>
+
+      <div className="user-header">
+      <FaBell />
+      <FaEnvelope />
+        <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+        <button className="button">
+          <Link to="/Login">Logout</Link>
+        </button>
+      </div>
+
+      <div className="page-content create-plan">
+        <div class="createplan-form">
+          <h1>Create your plan</h1>
+
+          <div className='border-form'>
+          <label>Enter the name </label>
+
+          <input
+            type="text"
+            name="name"
+            value={createPlan.name}
+            placeholder="Enter plan's name"
+            onChange={handleChange}
+          ></input>
+
+          <label>Enter the price </label>
+
+          <input
+            type="text"
+            name="price"
+            value={createPlan.price}
+            placeholder="Enter plan's price"
+            onChange={handleChange}
+          ></input>
+          <label>Enter desired info </label>
           {dynamicFields.map((input, index) => {
             return (
-              <div key={index}>
+              <div className="dunamic-form" key={index}>
                 <input
                   name="key"
                   placeholder="Key"
@@ -120,16 +136,18 @@ const CreatePlan = (props) => {
                   onChange={(event) => handleFormChange(index, event)}
                 />
                 <button onClick={() => removeFields(index)}>Remove</button>
+                <button onClick={addFields}>Add More</button><br></br>
               </div>
             );
           })}
-        </form>
-        <button onClick={addFields}>Add More Fields</button>
-        
+
+         
+          <button className="my-button" onClick={submitplan}>
+            Create your plan
+          </button>
+          </div>
+        </div>
       </div>
-      <button className="my-button" onClick={submitplan}>
-        Create your plan
-      </button>
     </div>
   );
 };

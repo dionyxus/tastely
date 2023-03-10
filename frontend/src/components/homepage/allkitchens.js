@@ -13,6 +13,16 @@ const AllKitchens = (props) => {
   const navigate = useNavigate();
   //   assignment delete button handle
 
+  // const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
+
+  const handleViewSubscribePlanClick = (id) => {
+    navigate(`/showsubscribeplans/${id}`);
+  };
+
     const handleViewPlanClick = (userid) => {
       navigate(`/singleuserkitchens/${userid}`)
         
@@ -36,15 +46,15 @@ const AllKitchens = (props) => {
  
 
   return (
-    <div className="homepage">
+    <div>
       <div>
-        <h2>EXPOLORE ALL REGISTERED KITCHENS</h2>
-        <ul className="grid-container">
+       
+        <ul className='showplan-details'>
           {allKitchens.map((kitchen) =>
             
             kitchen.usertype === "Owner" ? (
-              <li className="grid-item" key={kitchen._id}>
-              <img src={imageUrl} alt="Example" />
+              <li key={kitchen._id}>
+              <img src={imageUrl} alt="Example" height="200px" width="200px" />
                 <p>Kitchen - {kitchen.name}</p>
                 <button className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >View Plan</button><br></br><br></br>
               </li>
@@ -53,6 +63,7 @@ const AllKitchens = (props) => {
             ),
           )}
         </ul>
+        
       </div>
     </div>
   );
