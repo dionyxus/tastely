@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './header';
 import ShowPlan from '../showplan/showplan';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, NavLink, useNavigate} from 'react-router-dom';
 import AllKitchens from './allkitchens';
 import SubscribePlan from './subscribeplan';
 
@@ -22,6 +22,16 @@ const SingleUserKitchens = (props) => {
   // const [favorite, setFavorite] = useState([]);
 
   let { userid } = useParams();
+
+  const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
+
+  const handleViewSubscribePlanClick = (id) => {
+    navigate(`/showsubscribeplans/${id}`);
+  };
 
   // write a hook to get data from the database and set the data to the todoitems state variable
   useEffect(() => {
@@ -75,12 +85,29 @@ const SingleUserKitchens = (props) => {
   return (
     <div className="homepage">
       <div>
-      <Header />
+      
+
+      <div className="user-header">
+    <NavLink to="/home">Homepage</NavLink>
+          <NavLink to="/myprofile">View my profile</NavLink>
+          <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
+        View my subscribed plans
+      </button>
+    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+    <button className="button">
+      <Link to="/Login">Logout</Link>
+    </button>
+        </div>
+        
+
+        <div class="page-content">
+
+        
         <h2>All plans</h2>
         <div>
-        <ul className="grid-container">
+        <ul className="showplan-details">
           {singleKitchenOwnerPlans.map((singleKitchenOwnerPlan) => (
-            <li className="grid-item" key={singleKitchenOwnerPlan._id}>
+            <li key={singleKitchenOwnerPlan._id}>
               <p> {singleKitchenOwnerPlan.name}</p>
               <p> {singleKitchenOwnerPlan.price}</p>
 
@@ -96,6 +123,7 @@ const SingleUserKitchens = (props) => {
         </div>
         
       </div>
+    </div>
     </div>
   );
 };

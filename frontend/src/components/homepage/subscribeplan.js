@@ -1,23 +1,33 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import {NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import Header from './header';
-// import { Link, Outlet } from 'react-router-dom';
+// import {NavLink, Link, Outlet } from 'react-router-dom';
 
 const ShowSubscribePlan = (props) => {
   const [showSubscribePlans, setShowSubscribePlans] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
 
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
   //   assignment delete button handle
 
-    // const handleViewSubscribePlanClick = (userid) => {
-    //   navigate(`/showsubscribeplans/${userid}`)
-        
-    // };
+  // const handleViewSubscribePlanClick = (userid) => {
+  //   navigate(`/showsubscribeplans/${userid}`)
+
+  // };
 
   let { userid } = useParams();
+
+  const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
+
+  const handleViewSubscribePlanClick = (id) => {
+    navigate(`/showsubscribeplans/${id}`);
+  };
 
   //assignment delete button handle
   const handleDeleteClick = (id) => {
@@ -44,41 +54,44 @@ const ShowSubscribePlan = (props) => {
     getShowSubscribePlans();
   }, [apiSuccess]);
 
-  
-
   return (
-    <div>
-      <Header />
-     
-        <h2>Hi {props.loginUser.name} - Your all subscribed plans </h2>
-        <div className="card">
-        <ul>
+    <div className="homepage">
+      
+    <div className="user-header">
+    <NavLink to="/home">Homepage</NavLink>
+          <NavLink to="/myprofile">View my profile</NavLink>
+          <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
+        View my subscribed plans
+      </button>
+    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
+    <button className="button">
+      <Link to="/Login">Logout</Link>
+    </button>
+        </div>
+
+      
+      <div className="page-content">
+      <h2>Your subscribed plans </h2>
+        <ul className="showplan-details">
           {showSubscribePlans.map((showSubscribePlan) => {
             console.log(showSubscribePlan);
             return 2 ? (
               <li key={showSubscribePlan._id}>
                 <p>Plan title - {showSubscribePlan.plan.name}</p>
                 <p>Plan Price - {showSubscribePlan.plan.price}</p>
-                
-                <button className="my-button"
+
+                <button
+                  className="my-button"
                   onClick={() => handleDeleteClick(showSubscribePlan._id)}
                 >
                   Delete Plan
                 </button>
-
-                
               </li>
-             
-            ) 
-           
-            : (
+            ) : (
               ''
             );
           })}
         </ul>
-        
-
-
       </div>
     </div>
   );
