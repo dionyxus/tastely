@@ -30,6 +30,7 @@ const KitchenHeader = (props) => {
       >
         View Customers
       </NavLink>
+      <NavLink to="/viewmealpage">View Meals</NavLink>
 
       
     </ul>

@@ -2,12 +2,12 @@ import WeekButton from "./WeekButton";
 import { useState, useEffect } from "react";
 import SelectDishes from "./SelectDishes";
 
-const WeekCalender = ({orderId}) => {
+const WeekCalender = ({ orderId }) => {
 
     const MEAL_API_URL = "http://localhost:8080/api/v1/meal/";
     const SUBSCRIPTION_API_URL = "http://localhost:8080/showcustomersubscribeplan";
 
-    const [userInfo,setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({});
     //let userInfo;
     const currDate = new Date();
     const options = { weekday: "long" };
@@ -30,39 +30,39 @@ const WeekCalender = ({orderId}) => {
             dishesSelected: false
         },
         {
-            date: 2,
+            date: 9,
             dishes: ["afe21414", "faga3413"],
             dishesSelected: true
         },
         {
-            date: 3,
+            date: 10,
             dishes: ["eabaa62623", "efagg2525"],
             dishesSelected: true
         },
         {
-            date: 4,
+            date: 11,
             dishes: [],
             dishesSelected: false
         },
         {
-            date: 5,
+            date: 12,
             dishes: [],
             dishesSelected: false
         }
     ]);
 
-    useEffect(() =>{
+    useEffect(() => {
 
         fetch(SUBSCRIPTION_API_URL)
             .then(res => res.json())
             .then(data => {
                 data.forEach(obj => {
-                    if(obj._id === orderId){
+                    if (obj._id === orderId) {
                         setUserInfo(obj);
                     }
                 });
             });
-    },[]);
+    }, []);
 
 
     const [mealData, setMealData] = useState([]);
@@ -127,7 +127,7 @@ const WeekCalender = ({orderId}) => {
                 return data;
             });
     }
-    
+
     const onSaveButtonClick = (data) => {
 
         if (data.dishes.length < noOfDishes) {
@@ -137,18 +137,21 @@ const WeekCalender = ({orderId}) => {
 
         data.dishesSelected = true;
         setMealData({
-                date: data.date,
-                dishes: data.dishes,
-                dishesSelected: data.dishesSelected
-            }
+            date: data.date,
+            dishes: data.dishes,
+            dishesSelected: data.dishesSelected
+        }
         );
 
         postMeal({
-            date: data.date,
+            date: new Date( new Date().setDate(data.date)).toLocaleDateString(),
             dishes: data.dishes,
             customerId: userInfo.user._id,
+            customerName: userInfo.user.name,
             kitchenId: userInfo.plan.user,
-            planId: userInfo.plan._id
+            kitchenName: userInfo.plan.username,
+            planId: userInfo.plan._id,
+            planName: userInfo.plan.name
         });
     };
 

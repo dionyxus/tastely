@@ -2,7 +2,7 @@ import Header from "../homepage/header"
 import WeekCalender from "./WeekCalender"
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { NavLink, useParams, Link, useNavigate } from 'react-router-dom';
-import ViewMealPage from "./ViewMealPage";
+//import ViewMealPage from "./ViewMealPage";
 
 const MealPage = (props) => {
 
@@ -21,9 +21,9 @@ const MealPage = (props) => {
   return (
     <div>
       <Header />
+      <div className="">
       <WeekCalender orderId={orderid} />
-      <br></br><br></br>
-      <ViewMealPage />
+      </div>
     </div>
   )
 }
