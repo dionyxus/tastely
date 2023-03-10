@@ -23,11 +23,7 @@ const ShowSubscribePlan = (props) => {
 
   // const { id } = useParams();
 
-  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
-
-  const handleViewSubscribePlanClick = (id) => {
-    navigate(`/showsubscribeplans/${id}`);
-  };
+ 
 
   //assignment delete button handle
   const handleDeleteClick = (id) => {
@@ -57,17 +53,7 @@ const ShowSubscribePlan = (props) => {
   return (
     <div className="homepage">
       
-    <div className="user-header">
-    <NavLink to="/home">Homepage</NavLink>
-          <NavLink to="/myprofile">View my profile</NavLink>
-          <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
-        View my subscribed plans
-      </button>
-    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-    <button className="button">
-      <Link to="/Login">Logout</Link>
-    </button>
-        </div>
+   <Header />
 
       
       <div className="page-content">

@@ -87,17 +87,7 @@ const SingleUserKitchens = (props) => {
       <div>
       
 
-      <div className="user-header">
-    <NavLink to="/home">Homepage</NavLink>
-          <NavLink to="/myprofile">View my profile</NavLink>
-          <button className="my-button" onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
-        View my subscribed plans
-      </button>
-    <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-    <button className="button">
-      <Link to="/Login">Logout</Link>
-    </button>
-        </div>
+      <Header />
         
 
         <div class="page-content">
