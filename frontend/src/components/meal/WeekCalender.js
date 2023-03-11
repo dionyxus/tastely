@@ -13,43 +13,8 @@ const WeekCalender = ({ orderId }) => {
     const options = { weekday: "long" };
     const noOfDishesFromDB = 2;
 
-    const [dishData, setDishData] = useState([
-        {
-            date: -1,
-            dishes: [],
-            dishesSelected: false
-        },
-        {
-            date: -1,
-            dishes: [],
-            dishesSelected: false
-        },
-        {
-            date: -1,
-            dishes: [],
-            dishesSelected: false
-        },
-        {
-            date: 9,
-            dishes: ["afe21414", "faga3413"],
-            dishesSelected: true
-        },
-        {
-            date: 10,
-            dishes: ["eabaa62623", "efagg2525"],
-            dishesSelected: true
-        },
-        {
-            date: 11,
-            dishes: [],
-            dishesSelected: false
-        },
-        {
-            date: 12,
-            dishes: [],
-            dishesSelected: false
-        }
-    ]);
+    //const [dishData, setDishData] = useState([]);
+    const [allMealData, setAllMealData] = useState([]);
 
     useEffect(() => {
 
@@ -62,14 +27,61 @@ const WeekCalender = ({ orderId }) => {
                     }
                 });
             });
+
+        fetchMeals();
+
     }, []);
 
+    const fetchMeals = () => {
+        fetch(MEAL_API_URL)
+            .then(res => res.json())
+            .then(data => {
+                makeMealDataForWeek(data);
+            });
+    }
 
     const [mealData, setMealData] = useState([]);
 
     const [testingText, setTestingText] = useState("Testing Text");
     const [noOfDishes, setNoOfDishes] = useState(noOfDishesFromDB);
     const [enableDishesComp, setEnableDishesComp] = useState(false);
+
+    const makeMealDataForWeek = (mealData) => {
+        let weekData = [];
+        let today = new Date();
+        for (let i = 0; i < 7; i++) {
+            let date = new Date(today.setDate(today.getDate() - today.getDay() + i + 1));
+            weekData[i] = { date: date.toLocaleDateString() };
+
+            let dateMeal = mealData.filter(meal => meal.date === date.toLocaleDateString());
+            if (dateMeal.length > 0 && dateMeal[0].dishes.length > 0) {
+                weekData[i].dishes = dateMeal[0].dishes;
+                weekData[i].dishesSelected = true;
+            } else {
+                if (date.getDate() < new Date().getDate()) {
+                    weekData[i].date = -1;
+                }
+                weekData[i].dishes = [];
+                weekData[i].dishesSelected = false;
+            }
+
+            let day = new Intl.DateTimeFormat("en-US", options).format(date);
+            weekData[i].dayText = date.getDate() + " " + day;
+
+            let color = "black";
+            if (weekData[i].date === -1) {
+                color = "red";
+            } else if (weekData[i].dishes.length === 0) {
+                color = "green";
+            } else {
+                color = "grey";
+            }
+            weekData[i].color = color;
+            weekData[i].id = i;
+
+        }
+        setAllMealData(weekData);       
+    }
 
     const onWeekButtonClick = (data) => {
         let testText = ""
@@ -96,7 +108,7 @@ const WeekCalender = ({ orderId }) => {
             let day = new Intl.DateTimeFormat("en-US", options).format(date);
             let dayText = date.getDate() + " " + day;
 
-            let data = dishData[i];
+            let data;// = dishData[i];
             let color = "black";
 
             if (data.date === -1) {
@@ -123,7 +135,7 @@ const WeekCalender = ({ orderId }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                //               console.log(data);
                 return data;
             });
     }
@@ -143,8 +155,8 @@ const WeekCalender = ({ orderId }) => {
         }
         );
 
-        postMeal({
-            date: new Date(new Date().setDate(data.date)).toLocaleDateString(),
+        let newMeal = {
+            date: data.date,
             dishes: data.dishes,
             customerId: userInfo.user._id,
             customerName: userInfo.user.name,
@@ -152,12 +164,26 @@ const WeekCalender = ({ orderId }) => {
             kitchenName: userInfo.plan.username,
             planId: userInfo.plan._id,
             planName: userInfo.plan.name
+        };
+
+        postMeal(newMeal);
+
+        let mealData = allMealData;
+        mealData.map(meal => {
+            if(meal.date === newMeal.date){
+                meal.dishes = newMeal.dishes;
+                meal.color = "grey";
+                meal.dishesSelected = true;
+            }
         });
+
+        setAllMealData(mealData);
     };
 
     return (
         <div>
-            {makeWeekCal()}
+            {allMealData.map(meal => <WeekButton data={meal} color={meal.color} key={meal.id} text={meal.dayText} onClick={onWeekButtonClick} />)}
+            {/* {makeWeekCal()} */}
             <div className="container">
                 <br></br>
                 <br></br>
