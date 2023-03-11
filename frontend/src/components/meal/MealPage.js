@@ -16,8 +16,6 @@ const MealPage = (props) => {
     navigate(`/showsubscribeplans/${id}`);
   };
 
-
-
   return (
     <div>
       <Header />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ViewDishList from "./ViewDishList";
 
-const ViewDishes = () => {
+const ViewDishes = (props) => {
 
     const API_URL = "http://localhost:8080/api/v1/dishes/";
 
@@ -11,7 +11,8 @@ const ViewDishes = () => {
     useEffect(() => {
         const getDishes = async () => {
             const dishesFromServer = await fetchDishes();
-            let dishesFixed = dishesFromServer.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id }));
+            let filteredDishes = dishesFromServer.filter((dish) => dish.kitchenId === props.kitchenId);
+            let dishesFixed = filteredDishes.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id }));
             setDishes(dishesFixed);
         }
         getDishes();

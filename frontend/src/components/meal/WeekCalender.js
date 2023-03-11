@@ -161,7 +161,7 @@ const WeekCalender = ({ orderId }) => {
             <div className="container">
                 <br></br>
                 <br></br>
-                {enableDishesComp && <SelectDishes data={mealData} noOfDishes={noOfDishes} onClickSave={onSaveButtonClick} />}
+                {enableDishesComp && <SelectDishes data={mealData} kitchenId={userInfo.plan.user} noOfDishes={noOfDishes} onClickSave={onSaveButtonClick} />}
                 <br></br>
             </div>
         </div>

@@ -31,7 +31,7 @@ const ViewMealPage = (props) => {
             .then(data => {
                 
                 //Change Filter to IDs
-                data = data.filter(meal => meal.kitchenName === props.loginUser.name);
+                data = data.filter(meal => meal.kitchenId === props.loginUser._id);
                 setMealsData(data);
                 let mealTilesArray = [];
 

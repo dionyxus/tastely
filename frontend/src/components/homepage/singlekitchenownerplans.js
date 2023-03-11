@@ -124,7 +124,7 @@ const SingleUserKitchens = (props) => {
         </div>
 
         <br></br>
-        <ViewDishes/>
+        <ViewDishes kitchenId={userid}/>
 
       </div>
     </div>

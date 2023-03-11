@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import './DishesStyle.css';
 
 const DishPage = (props) => {
-
+    //console.log(props);
     const API_URL = "http://localhost:8080/api/v1/dishes/";
 
     const [dishes, setDishes] = useState([
@@ -17,7 +17,11 @@ const DishPage = (props) => {
     useEffect(() => {
         const getDishes = async () => {
             const dishesFromServer = await fetchDishes();
-            let dishesFixed = dishesFromServer.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id }));
+            let filteredDishes = dishesFromServer.filter((dish) => dish.kitchenId === props.loginUser._id);
+            let dishesFixed = filteredDishes.map((dish) => {
+                    let dishFixed = { name: dish.name, description: dish.description, veg: dish.veg, id: dish._id };
+                    return dishFixed;
+            });
             setDishes(dishesFixed);
         }
         getDishes();
@@ -33,6 +37,7 @@ const DishPage = (props) => {
     const [showAddDish, setShowAddDish] = useState(false);
 
     const postDishes = async (dish) => {
+        dish.kitchenId = props.loginUser._id;
         const res = await fetch(API_URL, {
             method: 'POST',
             headers: {
