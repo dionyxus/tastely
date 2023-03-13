@@ -4,6 +4,7 @@ import MealDetails from './MealDetails';
 import KitchenHeader from '../homepage/kitchenheader';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import UserBar from '../homepage/userheader';
 
 const ViewMealPage = (props) => {
 
@@ -57,13 +58,8 @@ const ViewMealPage = (props) => {
             </div>
 
             <div className="user-header">
-                <FaBell />
-                <FaEnvelope />
-                <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-                <button className="button">
-                    <Link to="/Login">Logout</Link>
-                </button>
-            </div>
+            <UserBar />
+          </div>
             <br></br><br></br>
             <div className='container'>
                 {mealTiles}

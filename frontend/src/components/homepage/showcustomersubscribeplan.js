@@ -5,6 +5,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import KitchenHeader from './kitchenheader';
 import "../ownerpage/ownerpage.css";
 import { FaBell, FaEnvelope } from 'react-icons/fa';
+import UserBar from './userheader';
 // import { Link, Outlet } from 'react-router-dom';
 
 const ShowCustomerSubscribePlan = (props) => {
@@ -35,27 +36,25 @@ const ShowCustomerSubscribePlan = (props) => {
       <div className="side-menu-bar">
           <KitchenHeader />
         </div>
-      <div className="user-header">
-      <FaBell />
-      <FaEnvelope />
-      <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-      <button className="button">
-        <Link to="/Login">Logout</Link>
-      </button>
-    </div>
+        <div className="user-header">
+        <UserBar />
+      </div>
     
       <div className="page-content">
-      <h2> All customers </h2>
-        <ul className="showplan-details">
+      <h2 className='heading'> MY CUSTOMERS </h2>
+        <ul style={{alignItems: 'center'}}className="showplan-details">
           {showCustomerSubscribePlans.map((showCustomerSubscribePlan) => {
 //            console.log(showCustomerSubscribePlan);
             return props.loginUser.name ==
               showCustomerSubscribePlan.plan.username ? (
               <li key={showCustomerSubscribePlan._id}>
-                <p>Plan title - {showCustomerSubscribePlan.plan.name}</p>
+                <p>{showCustomerSubscribePlan.plan.name}</p>
+                <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showCustomerSubscribePlan.plan.price}</p>
                 <p>User Name - {showCustomerSubscribePlan.user.name}</p>
                 <p>User Contact - {showCustomerSubscribePlan.user.contact}</p>
               </li>
+
+
             ) : (
               ''
             );

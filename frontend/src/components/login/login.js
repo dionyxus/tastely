@@ -4,17 +4,30 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import landing from './landing.JPG';
-// import { UserContext } from '../../usercontext';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { RiMailLine } from "react-icons/ri";
+
 
 const Login = (props) => {
   const navigate = useNavigate();
 
-  // const  [redirect, setRedirect] = useState(false);
-  // const {setLoginUser} = useContext(UserContext);
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
+
+  const textStyle = {
+    // fontStyle: 'italic',
+    color: 'black',
+    fontSize: '40px',
+    // textDecoration: 'underline',
+    fontWeight: 'bold'
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,33 +74,53 @@ const Login = (props) => {
       <div className="login-image">
         <img src={landing} alt="Login Page" />
       </div>
-      <div className="login-form">
-        <h1>Welcome</h1>
-        
-          <label>Email </label>
-          <input
-            type="email"
-            name="email"
-            value={user.email}
-            placeholder="Enter your email"
-            onChange={handleChange}
-          ></input>
-          <label>Password </label>
-          <input
-            type="password"
-            name="password"
-            value={user.password}
-            placeholder="Enter your password"
-            onChange={handleChange}
-          ></input>
-          <button className="button" onClick={login}>
-            Login
-          </button>
-          <div class="register-link">
-            <Link to="/Register"> No Account? Register Here</Link>
-          </div>
+      <div className="login-form login-form-2">
+        <h1 style={textStyle}>Welcome to Tastely</h1>
+
+        <label  className="input-label">Email </label>
+       
+        <input 
+          type="email"
+          name="email"
+          value={user.email}
           
+          placeholder="Enter your email"
+          onChange={handleChange}
+        ></input>
+
+        {/* <FontAwesomeIcon icon={faEnvelope} size="2x" color="blue"  className="input-icon"/> */}
         
+        <label>Password </label>
+       
+        <input
+          type="password"
+          name="password"
+          value={user.password}
+          placeholder="Enter your password"
+          onChange={handleChange}
+        ></input>
+        {/*<FontAwesomeIcon icon={faLock} size="2x" color="blue"  className="input-icon"/>*/}
+        <button className="button" onClick={login}>
+          Login
+        </button>
+        
+        <div class="register-link">
+          <Link to="/Register"> No Account? Register Here</Link>
+        </div>
+        <div className="login-icons">
+        <div className="login-icon">
+        Or Login Using:
+      </div>
+        <div className="login-icon">
+          <FcGoogle />
+        </div>
+        <div className="login-icon">
+          <FaFacebook />
+        </div>
+        <div className="login-icon">
+          <RiMailLine />
+        </div>
+      </div>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const Homepage = (props) => {
 
       
       <div class="page-content">
-      <h2>EXPOLORE ALL REGISTERED KITCHENS</h2>
+      <h2 className='heading'>EXPOLORE ALL REGISTERED KITCHENS</h2>
       <AllKitchens />
       </div>
     </div>

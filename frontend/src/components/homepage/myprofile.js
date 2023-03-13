@@ -6,6 +6,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import './myprofile.css';
 import '../ownerpage/ownerpage.css';
+import UserBar from './userheader';
 
 const MyProfile = (props) => {
   const navigate = useNavigate();
@@ -18,22 +19,17 @@ const MyProfile = (props) => {
           <div className="side-menu-bar">
             <KitchenHeader />
           </div>
-          <div class="user-header">
-          <FaBell />
-      <FaEnvelope />
-            <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-            <button className="button">
-              <Link to="/Login">Logout</Link>
-            </button>
-          </div>
+          <div className="user-header">
+        <UserBar />
+      </div>
           <div class="page-content">
-        <h1>My Profile</h1>
+        <h1 className='heading'>MY KITCHEN PROFILE</h1>
         <div class="profile-border-form">
-          <p>{' Name - ' + props.loginUser.name + ''}</p>
-          <p>{' User Type - ' + props.loginUser.usertype}</p>
-          <p>{' Contact - ' + props.loginUser.contact}</p>
-          <p>{' Email - ' + props.loginUser.email}</p>
-          <p>{' Address - ' + props.loginUser.address}</p>
+          <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
+          <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
+          <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
+          <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
+          <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
         </div>
         </div>
         </div>
@@ -46,13 +42,13 @@ const MyProfile = (props) => {
         <div className='homepage'>
         <Header />
         <div class="page-content">
-        <h1>My Profile</h1>
+        <h1 className='heading'>MY PROFILE</h1>
         <div class="profile-border-form">
-          <p>{' Name - ' + props.loginUser.name + ''}</p>
-          <p>{' User Type - ' + props.loginUser.usertype}</p>
-          <p>{' Contact - ' + props.loginUser.contact}</p>
-          <p>{' Email - ' + props.loginUser.email}</p>
-          <p>{' Address - ' + props.loginUser.address}</p>
+        <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
+        <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
+        <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
+        <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
+        <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
         </div>
       </div>
       </div>

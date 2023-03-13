@@ -6,6 +6,8 @@ import './ownerpage.css';
   import { FaBell, FaEnvelope } from 'react-icons/fa';
   import graph from './graph.png';
   import logo from './logo.png';
+  import UserBar
+   from '../homepage/userheader';
 const Ownerpage = (props) => {
   // const navigate = useNavigate();
   // const loginUser = JSON.parse(localStorage.getItem('user'))._id;
@@ -17,12 +19,7 @@ const Ownerpage = (props) => {
       </div>
     
       <div className="user-header">
-      <FaBell />
-      <FaEnvelope />
-        <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-        <button className="button">
-          <Link to="/Login">Logout</Link>
-        </button>
+        <UserBar />
       </div>
 
       <div className='page-content'>

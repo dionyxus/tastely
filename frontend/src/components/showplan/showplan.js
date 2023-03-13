@@ -7,6 +7,8 @@ import { FaBell, FaEnvelope } from 'react-icons/fa';
 import '../ownerpage/ownerpage.css';
 import './showplan.css';
 
+import UserBar from '../homepage/userheader';
+
 const ShowPlan = (props) => {
   const [showplans, setShowPlans] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -41,24 +43,23 @@ const ShowPlan = (props) => {
       </div>
 
       <div className="user-header">
-      <FaBell />
-      <FaEnvelope />
-        <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-        <button className="button">
-          <Link to="/Login">Logout</Link>
-        </button>
+        <UserBar />
       </div>
 
       <div className="showPlans">
         <div class="page-content">
-          <h2>All plans </h2>
+          <h2 className="heading">ALL PLANS </h2>
           <ul className="showplan-details">
             {showplans.map((showplan) => {
               // console.log(props, showplan);
               return props.loginUser.name == showplan.username ? (
                 <li key={showplan._id}>
-                  <p>Plan title - {showplan.name}</p>
-                  <p>Plan Price - {showplan.price}</p>
+                  <p style={{ fontSize: '36px', padding: 10 }}>
+                    {showplan.name}
+                  </p>
+                  <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>
+                    ${showplan.price}
+                  </p>
 
                   <ul className="dynamic-details">
                     {showplan.dynamicfields.map((dynamicfield) => {
@@ -72,6 +73,7 @@ const ShowPlan = (props) => {
                     })}
                   </ul>
                   <button
+                    style={{ backgroundColor: 'red', color: 'white' }}
                     className="showplan-button button"
                     onClick={() => handleDeleteClick(showplan._id)}
                   >

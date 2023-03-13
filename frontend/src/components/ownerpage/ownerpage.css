@@ -25,6 +25,16 @@
     padding: 10px;
 }
 
+.side-menu-bar ul a.active{
+	color: yellow;
+    
+}
+
+.side-menu-bar ul a:hover{
+	color: yellow;
+    
+}
+
 
 .user-header {
     margin: 0px;

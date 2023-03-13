@@ -26,12 +26,12 @@ const ViewDishes = (props) => {
     }
 
     return (
-        <>
-            <h2 style={{textAlign: "center"}}>Dishes Offered</h2>
+        <div>
+            <h2 className='heading' style={{textAlign: "center"}}>DISHES OFFERED</h2>
             <div className='container'>
                 <ViewDishList dishes={dishes} />
             </div>
-        </>
+        </div>
     )
 }
 

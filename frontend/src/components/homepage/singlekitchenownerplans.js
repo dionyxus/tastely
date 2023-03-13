@@ -102,15 +102,30 @@ const SingleUserKitchens = (props) => {
         <div class="page-content">
 
 
-          <h2>All plans</h2>
+          <h2 className='heading'>ALL PLANS</h2>
           <div>
             <ul className="showplan-details">
               {singleKitchenOwnerPlans.map((singleKitchenOwnerPlan) => (
+                console.log(singleKitchenOwnerPlan),
                 <li key={singleKitchenOwnerPlan._id}>
-                  <p> {singleKitchenOwnerPlan.name}</p>
-                  <p> {singleKitchenOwnerPlan.price}</p>
+                  <p  style={{ fontSize: '32px', padding: 10 }}> {singleKitchenOwnerPlan.name}</p>
+                  <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>
+                   ${singleKitchenOwnerPlan.price}</p>
+                   <p>{singleKitchenOwnerPlan.dynamicfields.key}</p>
 
-                  <button className="my-button"
+                   <ul className="dynamic-details">
+                    {singleKitchenOwnerPlan.dynamicfields.map((dynamicfield) => {
+                      return (
+                        <li key={dynamicfield._id}>
+                          <p>
+                            {dynamicfield.key} - {dynamicfield.info}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <button style={{ marginTop: '40px' }} className="my-button"
                     onClick={() => subscribePlanClick(singleKitchenOwnerPlan._id, singleKitchenOwnerPlan.name)}
                   >
                     Subscribe
