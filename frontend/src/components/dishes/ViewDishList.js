@@ -12,11 +12,11 @@ const DishRow = ({ dish }) => {
 const ViewDishList = ({ dishes }) => {
 
     return (
-        <>
+        <div>
             {dishes.map((dish) => (
                 <DishRow key={dish.id} dish={dish} />
             ))}
-        </>
+        </div>
     )
 }
 

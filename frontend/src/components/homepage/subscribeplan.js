@@ -57,20 +57,30 @@ const ShowSubscribePlan = (props) => {
 
       
       <div className="page-content">
-      <h2>Your subscribed plans </h2>
+      <h2 className='heading'>YOUR SUBSCRIBED PLAN </h2>
         <ul className="showplan-details">
           {showSubscribePlans.map((showSubscribePlan) => {
             console.log(showSubscribePlan);
             return 2 ? (
               <li key={showSubscribePlan._id}>
-                <p>Plan title - {showSubscribePlan.plan.name}</p>
-                <p>Plan Price - {showSubscribePlan.plan.price}</p>
-
-                <button
+                <p style={{ fontSize: '32px', padding: 10 }}>{showSubscribePlan.plan.name}</p>
+                <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showSubscribePlan.plan.price}</p>
+                <ul className="dynamic-details">
+                    {showSubscribePlan.plan.dynamicfields.map((dynamicfield) => {
+                      return (
+                        <li key={dynamicfield._id}>
+                          <p>
+                            {dynamicfield.key} - {dynamicfield.info}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                <button style={{ marginTop: '40px' }}
                   className="my-button"
                   onClick={() => handleDeleteClick(showSubscribePlan._id)}
                 >
-                  Delete Plan
+                  Unsubscribe
                 </button>
               </li>
             ) : (

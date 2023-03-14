@@ -13,6 +13,7 @@ import ShowCustomerSubscribePlan from './components/homepage/showcustomersubscri
 import Header from './components/homepage/header';
 import MyProfile from './components/homepage/myprofile';
 import LandingPage from './components/homepage/landingpage';
+import UserBar from './components/homepage/userheader';
 // import { Footer } from './components/files'
 
 
@@ -69,6 +70,7 @@ const App = (props) => {
           <Route exact path="/setmealpage/:orderid" element={<MealPage loginUser={loginUser} />} />
           <Route exact path="/adddishes/" element={<DishPage loginUser={loginUser} />} />
           <Route exact path="/viewmealpage/" element={<ViewMealPage loginUser={loginUser} />} />
+          <Route exact path="/userheader" element={<UserBar loginUser={loginUser} setLoginUser={setLoginUser}/>} />
 
 
         </Routes>

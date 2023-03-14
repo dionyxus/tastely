@@ -6,9 +6,13 @@ import '../ownerpage/ownerpage.css';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './createplan.css';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
+import UserBar from '../homepage/userheader';
 //import DynamicFields from './dynamicfields';
 // import dynamicfield from '../../../../backend/models/dynamicfield';
 // import { Link, Outlet } from 'react-router-dom';
+
+
+const buttonStyle = { backgroundColor: '#EB455F', color: 'black', border: '1px solid #000', borderRadius: '1px'}
 
 const CreatePlan = (props) => {
   const [createPlan, setCreatePlan] = useState({
@@ -57,6 +61,16 @@ const CreatePlan = (props) => {
   };
 
   const submitplan = (e) => {
+
+    setCreatePlan({
+      name: '',
+      price: '',
+      user: '',
+      username: '',
+    });
+
+    setDynamicFields([{ key: '', info: '' }]);
+
     console.log(dynamicFields);
     showData();
     // const loggeduser = JSON.parse(localStorage.getItem('user'))
@@ -87,64 +101,59 @@ const CreatePlan = (props) => {
       </div>
 
       <div className="user-header">
-      <FaBell />
-      <FaEnvelope />
-        <h2>{'Welcome ' + props.loginUser.name + ''}</h2>
-        <button className="button">
-          <Link to="/Login">Logout</Link>
-        </button>
-      </div>
+      <UserBar />
+    </div>
 
       <div className="page-content create-plan">
         <div class="createplan-form">
-          <h1>Create your plan</h1>
+          <h1 className='heading'>CREATE YOUR PLAN</h1>
 
-          <div className='border-form'>
-          <label>Enter the name </label>
+          <div className="border-form">
+            <label>Enter the name </label>
 
-          <input
-            type="text"
-            name="name"
-            value={createPlan.name}
-            placeholder="Enter plan's name"
-            onChange={handleChange}
-          ></input>
+            <input
+              type="text"
+              name="name"
+              value={createPlan.name}
+              placeholder="Enter plan's name"
+              onChange={handleChange}
+            ></input>
 
-          <label>Enter the price </label>
+            <label>Enter the price </label>
 
-          <input
-            type="text"
-            name="price"
-            value={createPlan.price}
-            placeholder="Enter plan's price"
-            onChange={handleChange}
-          ></input>
-          <label>Enter desired info </label>
-          {dynamicFields.map((input, index) => {
-            return (
-              <div className="dunamic-form" key={index}>
-                <input
-                  name="key"
-                  placeholder="Key"
-                  value={input.key}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-                <input
-                  name="info"
-                  placeholder="Info"
-                  value={input.info}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-                <button onClick={() => removeFields(index)}>Remove</button>
-                <button onClick={addFields}>Add More</button><br></br>
-              </div>
-            );
-          })}
+            <input
+              type="text"
+              name="price"
+              value={createPlan.price}
+              placeholder="Enter plan's price"
+              onChange={handleChange}
+            ></input>
+            <label>Enter desired info </label>
+            {dynamicFields.map((input, index) => {
+              return (
+                <div className="dunamic-form" key={index}>
+                  <input
+                    name="key"
+                    placeholder="Key"
+                    value={input.key}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <input
+                    name="info"
+                    placeholder="Info"
+                    value={input.info}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <button style={buttonStyle} onClick={() => removeFields(index)}>Remove</button>
+                  <button style={{ backgroundColor: '#03C988', color: 'black', border: '1px solid #000', borderRadius: '1px'}} onClick={addFields}>Add More</button>
+                  <br></br>
+                </div>
+              );
+            })}
 
-         
-          <button className="my-button" onClick={submitplan}>
-            Create your plan
-          </button>
+            <button className="my-button" onClick={submitplan}>
+              Submit Plan
+            </button>
           </div>
         </div>
       </div>

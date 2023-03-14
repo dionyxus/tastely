@@ -28,7 +28,7 @@ const AllKitchens = (props) => {
         
     };
 
-    const imageUrl = "https://www.w3schools.com/html/pic_trulli.jpg";
+    const imageUrl = "https://images.pexels.com/photos/5971975/pexels-photo-5971975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 // 
   // write a hook to get data from the database and set the data to the todoitems state variable
   useEffect(() => {
@@ -54,9 +54,9 @@ const AllKitchens = (props) => {
             
             kitchen.usertype === "Owner" ? (
               <li key={kitchen._id}>
-              <img src={imageUrl} alt="Example" height="200px" width="200px" />
-                <p>Kitchen - {kitchen.name}</p>
-                <button className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >View Plan</button><br></br><br></br>
+              <img src={imageUrl} alt="Example" height="300px" />
+                <p style={{ fontSize: '24px', padding: 10 }}>{kitchen.name.toUpperCase()}</p>
+                <button style= {{fontSize: '18px'}}className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >Available Plans</button><br></br><br></br>
               </li>
             ) : (
               ''
