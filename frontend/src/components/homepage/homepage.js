@@ -1,22 +1,33 @@
 import { React } from 'react';
 import Header from './header';
 import AllKitchens from './allkitchens';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './homepage.css';
+import '../ownerpage/ownerpage.css'
+
+
+
+  // const { id } = useParams();
+
+  
 
 const Homepage = (props) => {
+
+  
+
+  
+
+  
+
   return (
     <div className="homepage">
-      <div>
-        <h2>
-          {'Hi ' +
-            props.loginUser.name +
-            ' Welcome - User Type - ' +
-            props.loginUser.usertype +
-            ''}
-        </h2>
-      </div>
-      <Header />
+   <Header />
+
+      
+      <div class="page-content">
+      <h2 className='heading'>EXPOLORE ALL REGISTERED KITCHENS</h2>
       <AllKitchens />
+      </div>
     </div>
   );
 };

@@ -13,12 +13,22 @@ const AllKitchens = (props) => {
   const navigate = useNavigate();
   //   assignment delete button handle
 
+  // const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
+
+  const handleViewSubscribePlanClick = (id) => {
+    navigate(`/showsubscribeplans/${id}`);
+  };
+
     const handleViewPlanClick = (userid) => {
       navigate(`/singleuserkitchens/${userid}`)
         
     };
 
-    const imageUrl = "https://www.w3schools.com/html/pic_trulli.jpg";
+    const imageUrl = "https://images.pexels.com/photos/5971975/pexels-photo-5971975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 // 
   // write a hook to get data from the database and set the data to the todoitems state variable
   useEffect(() => {
@@ -36,23 +46,24 @@ const AllKitchens = (props) => {
  
 
   return (
-    <div className="homepage">
+    <div>
       <div>
-        <h2>EXPOLORE ALL REGISTERED KITCHENS</h2>
-        <ul className="grid-container">
+       
+        <ul className='showplan-details'>
           {allKitchens.map((kitchen) =>
             
             kitchen.usertype === "Owner" ? (
-              <li className="grid-item" key={kitchen._id}>
-              <img src={imageUrl} alt="Example" />
-                <p>Kitchen - {kitchen.name}</p>
-                <button className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >View Plan</button><br></br><br></br>
+              <li key={kitchen._id}>
+              <img src={imageUrl} alt="Example" height="300px" />
+                <p style={{ fontSize: '24px', padding: 10 }}>{kitchen.name.toUpperCase()}</p>
+                <button style= {{fontSize: '18px'}}className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >Available Plans</button><br></br><br></br>
               </li>
             ) : (
               ''
             ),
           )}
         </ul>
+        
       </div>
     </div>
   );

@@ -2,26 +2,80 @@ import { React } from 'react';
 import Header from './header';
 import AllKitchens from './allkitchens';
 import KitchenHeader from './kitchenheader';
-// import './myprofile.css';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
+import './myprofile.css';
+import '../ownerpage/ownerpage.css';
+import UserBar from './userheader';
 
 const MyProfile = (props) => {
-  return (
-    <div className="homepage">
-      <div>
-      <KitchenHeader/>
-        <h2>
-          <h1>
-          My Profile</h1>
-            <p>{" Name - " + props.loginUser.name + " - " +props.loginUser.usertype}</p>
-            <p>{" Contact - " + props.loginUser.contact}</p>
-            <p>{" Email - " + props.loginUser.email}</p>
-            <p>{" Address - " + props.loginUser.address}</p>
-        </h2>
+  const navigate = useNavigate();
+
+  
+  function render() {
+    if (props.loginUser.usertype === 'Owner') {
+      return (
+        <div className='ownerpage'>
+          <div className="side-menu-bar">
+            <KitchenHeader />
+          </div>
+          <div className="user-header">
+        <UserBar />
       </div>
-     
+          <div class="page-content">
+        <h1 className='heading'>MY KITCHEN PROFILE</h1>
+        <div class="profile-border-form">
+          <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
+          <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
+          <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
+          <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
+          <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
+        </div>
+        </div>
+        </div>
+      );
+    } else {
       
-    </div>
+
+     
+      return (
+        <div className='homepage'>
+        <Header />
+        <div class="page-content">
+        <h1 className='heading'>MY PROFILE</h1>
+        <div class="profile-border-form">
+        <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
+        <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
+        <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
+        <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
+        <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
+        </div>
+      </div>
+      </div>
+      );
+    }
+  }
+
+  return (
+    
+      <div>
+        {render()}
+       
+      </div>
+    
   );
 };
 
 export default MyProfile;
+
+//
+
+//  if (props.loginUser.usertype === "owner") {
+//           return  <KitchenHeader/>
+//         }
+//         else {
+//           return  <Header/>
+//         }
+//        }
+
+// {render()}

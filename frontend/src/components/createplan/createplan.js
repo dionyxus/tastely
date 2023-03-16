@@ -2,9 +2,17 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import KitchenHeader from '../homepage/kitchenheader';
+import '../ownerpage/ownerpage.css';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import './createplan.css';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
+import UserBar from '../homepage/userheader';
 //import DynamicFields from './dynamicfields';
 // import dynamicfield from '../../../../backend/models/dynamicfield';
 // import { Link, Outlet } from 'react-router-dom';
+
+
+const buttonStyle = { backgroundColor: '#EB455F', color: 'black', border: '1px solid #000', borderRadius: '1px'}
 
 const CreatePlan = (props) => {
   const [createPlan, setCreatePlan] = useState({
@@ -53,6 +61,16 @@ const CreatePlan = (props) => {
   };
 
   const submitplan = (e) => {
+
+    setCreatePlan({
+      name: '',
+      price: '',
+      user: '',
+      username: '',
+    });
+
+    setDynamicFields([{ key: '', info: '' }]);
+
     console.log(dynamicFields);
     showData();
     // const loggeduser = JSON.parse(localStorage.getItem('user'))
@@ -65,71 +83,80 @@ const CreatePlan = (props) => {
       dynamicfields: dynamicFields,
       user: createPlan.user,
       username: createPlan.username,
-      
     };
-    console.log("data:", data)
+    console.log('data:', data);
 
     if (name && price) {
       axios.post(url, data).then((res) => alert('Your plan has been created'));
-      console.log(data)
+      console.log(data);
     } else {
       alert('check all your inputs');
     }
   };
 
   return (
-    <div>
-      <KitchenHeader />
-      <div className="CreatePlan">
-        <h1>Hi {props.loginUser.name} - Create your plan</h1>
-        <label>Enter the name </label>
-        <br></br>
-        <input
-          type="text"
-          name="name"
-          value={createPlan.name}
-          placeholder="Enter plan's name"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <label>Enter the price </label>
-        <br></br>
-        <input
-          type="text"
-          name="price"
-          value={createPlan.price}
-          placeholder="Enter plan's price"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <br></br>
-        <form onSubmit={submit}>
-          {dynamicFields.map((input, index) => {
-            return (
-              <div key={index}>
-                <input
-                  name="key"
-                  placeholder="Key"
-                  value={input.key}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-                <input
-                  name="info"
-                  placeholder="Info"
-                  value={input.info}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-                <button onClick={() => removeFields(index)}>Remove</button>
-              </div>
-            );
-          })}
-        </form>
-        <button onClick={addFields}>Add More Fields</button>
-        
+    <div className="ownerpage">
+      <div className="side-menu-bar">
+        <KitchenHeader />
       </div>
-      <button className="my-button" onClick={submitplan}>
-        Create your plan
-      </button>
+
+      <div className="user-header">
+      <UserBar />
+    </div>
+
+      <div className="page-content create-plan">
+        <div class="createplan-form">
+          <h1 className='heading'>CREATE YOUR PLAN</h1>
+
+          <div className="border-form">
+            <label>Enter the name </label>
+
+            <input
+              type="text"
+              name="name"
+              value={createPlan.name}
+              placeholder="Enter plan's name"
+              onChange={handleChange}
+            ></input>
+
+            <label>Enter the price </label>
+
+            <input
+              type="text"
+              name="price"
+              value={createPlan.price}
+              placeholder="Enter plan's price"
+              onChange={handleChange}
+            ></input>
+            <label>Enter desired info </label>
+            {dynamicFields.map((input, index) => {
+              return (
+                <div className="dunamic-form" key={index}>
+                  <input
+                    name="key"
+                    placeholder="Key"
+                    value={input.key}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <input
+                    name="info"
+                    placeholder="Info"
+                    value={input.info}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <button style={buttonStyle} onClick={() => removeFields(index)}>Remove</button>
+                  <button style={{ backgroundColor: '#03C988', color: 'black', border: '1px solid #000', borderRadius: '1px'}} onClick={addFields}>Add More</button>
+                  <br></br>
+                </div>
+              );
+            })}
+
+            <button className="my-button" onClick={submitplan}>
+              Submit Plan
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

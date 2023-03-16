@@ -2,9 +2,14 @@ import Header from './Header'
 import Dishes from './Dishes'
 import { useState, useEffect } from "react";
 import AddDish from './AddDish';
+import KitchenHeader from '../homepage/kitchenheader';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import './DishesStyle.css';
+import UserBar from '../homepage/userheader';
 
-const DishPage = () => {
-
+const DishPage = (props) => {
+    //console.log(props);
     const API_URL = "http://localhost:8080/api/v1/dishes/";
 
     const [dishes, setDishes] = useState([
@@ -13,7 +18,11 @@ const DishPage = () => {
     useEffect(() => {
         const getDishes = async () => {
             const dishesFromServer = await fetchDishes();
-            let dishesFixed = dishesFromServer.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id }));
+            let filteredDishes = dishesFromServer.filter((dish) => dish.kitchenId === props.loginUser._id);
+            let dishesFixed = filteredDishes.map((dish) => {
+                    let dishFixed = { name: dish.name, description: dish.description, veg: dish.veg, id: dish._id };
+                    return dishFixed;
+            });
             setDishes(dishesFixed);
         }
         getDishes();
@@ -29,6 +38,7 @@ const DishPage = () => {
     const [showAddDish, setShowAddDish] = useState(false);
 
     const postDishes = async (dish) => {
+        dish.kitchenId = props.loginUser._id;
         const res = await fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -60,11 +70,19 @@ const DishPage = () => {
     }
 
     return (
-        <div className="container">
-            <Header onAdd={() => setShowAddDish(!showAddDish)} showAdd={showAddDish} />
-            {showAddDish && <AddDish onAddDish={addDish} />}
-            <Dishes dishes={dishes} onDelete={deleteDish} />
+        <div className="">
+            <div className="side-menu-bar">
+                <KitchenHeader />
+            </div>
 
+            <div className="user-header">
+        <UserBar />
+      </div>
+            <div className='container'>
+                <Header onAdd={() => setShowAddDish(!showAddDish)} showAdd={showAddDish} />
+                {showAddDish && <AddDish onAddDish={addDish} />}
+                <Dishes dishes={dishes} onDelete={deleteDish} />
+            </div>
         </div>
     )
 }
