@@ -1,23 +1,29 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import {NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import Header from './header';
-// import { Link, Outlet } from 'react-router-dom';
+// import {NavLink, Link, Outlet } from 'react-router-dom';
 
 const ShowSubscribePlan = (props) => {
   const [showSubscribePlans, setShowSubscribePlans] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
 
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
   //   assignment delete button handle
 
-    // const handleViewSubscribePlanClick = (userid) => {
-    //   navigate(`/showsubscribeplans/${userid}`)
-        
-    // };
+  // const handleViewSubscribePlanClick = (userid) => {
+  //   navigate(`/showsubscribeplans/${userid}`)
+
+  // };
 
   let { userid } = useParams();
+
+  const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+ 
 
   //assignment delete button handle
   const handleDeleteClick = (id) => {
@@ -44,41 +50,44 @@ const ShowSubscribePlan = (props) => {
     getShowSubscribePlans();
   }, [apiSuccess]);
 
-  
-
   return (
-    <div>
-      <Header />
-     
-        <h2>Hi {props.loginUser.name} - Your all subscribed plans </h2>
-        <div className="card">
-        <ul>
+    <div className="homepage">
+      
+   <Header />
+
+      
+      <div className="page-content">
+      <h2 className='heading'>YOUR SUBSCRIBED PLAN </h2>
+        <ul className="showplan-details">
           {showSubscribePlans.map((showSubscribePlan) => {
             console.log(showSubscribePlan);
             return 2 ? (
               <li key={showSubscribePlan._id}>
-                <p>Plan title - {showSubscribePlan.plan.name}</p>
-                <p>Plan Price - {showSubscribePlan.plan.price}</p>
-                
-                <button className="my-button"
+                <p style={{ fontSize: '32px', padding: 10 }}>{showSubscribePlan.plan.name}</p>
+                <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showSubscribePlan.plan.price}</p>
+                <ul className="dynamic-details">
+                    {showSubscribePlan.plan.dynamicfields.map((dynamicfield) => {
+                      return (
+                        <li key={dynamicfield._id}>
+                          <p>
+                            {dynamicfield.key} - {dynamicfield.info}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                <button style={{ marginTop: '40px' }}
+                  className="my-button"
                   onClick={() => handleDeleteClick(showSubscribePlan._id)}
                 >
-                  Delete Plan
+                  Unsubscribe
                 </button>
-
-                
               </li>
-             
-            ) 
-           
-            : (
+            ) : (
               ''
             );
           })}
         </ul>
-        
-
-
       </div>
     </div>
   );

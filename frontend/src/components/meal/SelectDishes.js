@@ -39,7 +39,7 @@ const DishSelect = ({ value, index, selectedDish, dishes }) => {
 }
 
 
-const SelectDishes = ({ data, onClickSave, noOfDishes }) => {
+const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
 
     const DISHES_API_URL = "http://localhost:8080/api/v1/dishes/";
     const [dishes, setDishes] = useState([]);
@@ -64,6 +64,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes }) => {
             .then(res => res.json())
             .then(data => {
                 //console.log(data);
+                data = data.filter((dish) => dish.kitchenId === kitchenId);
                 setDishes(data);
             });
 
@@ -106,7 +107,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes }) => {
     }
 
     return (
-        <div>
+        <div style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
             {makeDishesMenu()}
             {showSaveButton && <Button text={"Save"} onClick={onClick} />}
         </div>

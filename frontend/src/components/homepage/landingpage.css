@@ -1,0 +1,76 @@
+.landing-components {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.landing-image img {
+	max-height: 400px;
+}
+
+.landing-image {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+}
+
+.login-signup {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+    padding: 50px 0px;
+	/* gap: 50px; */
+    /* position: relative; */
+}
+
+/* .login-signup p {
+	position: absolute ;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%,0);
+} */
+
+
+
+ul{
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 32px;
+}
+
+ul a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .landing-components {
+        grid-template-columns: 1fr;
+    }
+
+    .login-signup {
+        padding: 50px 20px;
+        gap: 50px;
+    }
+    
+    .landing-image {
+        padding: 50px 20px;
+    }
+
+}
+
+
+
+
+/* RiArrowRightCircleFill */

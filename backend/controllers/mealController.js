@@ -48,9 +48,9 @@ const saveMeal = (req, res) => {
 
 };
 
-const deleteDish = (req, res) => {
+const deleteMeal = (req, res) => {
     const id = req.params.id;
-        Meal.deleteOne({ "_id": id }).exec()
+    Meal.deleteOne({ "_id": id }).exec()
         .then(results => {
             if (results.deletedCount === 1) {
                 res.status(200).json(results);
@@ -61,8 +61,21 @@ const deleteDish = (req, res) => {
         });
 };
 
+const deleteAllMeals = (req, res) => {
+    const id = req.params.id;
+    Meal.deleteMany({}).exec()
+        .then(results => {
+            res.status(200).json(results);
+
+        })
+        .catch(error => {
+            res.status(500).json(error);
+        });
+};
+
 module.exports = {
     getMeal,
     saveMeal,
-    deleteDish
+    deleteMeal,
+    deleteAllMeals
 }

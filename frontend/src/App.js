@@ -12,7 +12,9 @@ import ShowSubscribePlan from './components/homepage/subscribeplan';
 import ShowCustomerSubscribePlan from './components/homepage/showcustomersubscribeplan';
 import Header from './components/homepage/header';
 import MyProfile from './components/homepage/myprofile';
-// import {Header, Footer } from './components/files'
+import LandingPage from './components/homepage/landingpage';
+import UserBar from './components/homepage/userheader';
+// import { Footer } from './components/files'
 
 
 // import Header from './components/homepage/header';
@@ -23,6 +25,10 @@ import MealPage from './components/meal/MealPage';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SingleUserKitchens from './components/homepage/singlekitchenownerplans';
+import CustomerOrderConfirmation from './components/orderpage/CustomerOrderConfirmation';
+import ViewMealPage from './components/meal/ViewMealPage';
+//import Footer from './components/files/footer/Footer';
+//import KitchenHeader from './components/homepage/kitchenheader';
 
 const App = (props) => {
 
@@ -41,14 +47,15 @@ const App = (props) => {
   return (
     <div className="App">
 
-
+    
       <Router>
         <Routes>
 
           {/* akfbakbfa*/}
-          <Route exact path="/" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/allkitchens" element={<AllKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} />} />
-          <Route exact path="/singleuserkitchens/:userid" element={<SingleUserKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} />} />
+          <Route exact path="/" element={<LandingPage loginUser={loginUser} setLoginUser={setLoginUser} />} />
+          <Route exact path="/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} />} />
+          <Route exact path="/allkitchens" element={<AllKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} loginUser={loginUser} setLoginUser={setLoginUser}/>} />
+          <Route exact path="/singleuserkitchens/:userid" element={<SingleUserKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} loginUser={loginUser} setLoginUser={setLoginUser}/>} />
           <Route exact path="/home" element={<Homepage loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/owner" element={<Ownerpage loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/header" element={<Header loginUser={loginUser} setLoginUser={setLoginUser} />} />
@@ -59,13 +66,15 @@ const App = (props) => {
           <Route exact path="/myprofile" element={<MyProfile loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/showsubscribeplans/:userid" element={<ShowSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
           <Route exact path="/showcustomersubscribeplans" element={<ShowCustomerSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
+          <Route exact path="/customerorder/:planid" element={<CustomerOrderConfirmation loginUser={loginUser} />} />
+          <Route exact path="/setmealpage/:orderid" element={<MealPage loginUser={loginUser} />} />
+          <Route exact path="/adddishes/" element={<DishPage loginUser={loginUser} />} />
+          <Route exact path="/viewmealpage/" element={<ViewMealPage loginUser={loginUser} />} />
+          <Route exact path="/userheader" element={<UserBar loginUser={loginUser} setLoginUser={setLoginUser}/>} />
 
 
         </Routes>
       </Router>
-
-      <DishPage />
-      <MealPage/>
 
     </div>
   );

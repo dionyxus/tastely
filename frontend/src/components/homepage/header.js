@@ -1,42 +1,56 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+// import logo from './logo.png';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { FaHome, FaUser } from 'react-icons/fa';
 
 // import "./header.css"
-
 
 const Header = (props) => {
   const navigate = useNavigate();
 
-  const loginUser = JSON.parse(localStorage.getItem('user'))._id;
+  const [loginUser, setLoginUser] = useState({});
+  const [kitchenOwner, setKitchenOwner] = useState();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setLoginUser(user);
+    }
+  }, []);
+  // const { id } = useParams();
+
+  const loginUserId = JSON.parse(localStorage.getItem('user'))._id;
 
   const handleViewSubscribePlanClick = (id) => {
     navigate(`/showsubscribeplans/${id}`);
   };
 
   return (
-    <div className="header-background">
-      <div className="header header-max-width-div">
-        <ul className="nav">
-          <NavLink to="/">Customer Dashboard</NavLink>
-          <br></br>
-          <br></br>
-          <NavLink to="/myprofile">View my profile</NavLink>
-          <br></br>
-          <br></br>
-          <button onClick={(props) => handleViewSubscribePlanClick(loginUser)}>
-            View my subscribed plans
-          </button>
-          <button>
-            <Link to="/Login">Logout</Link>
-          </button>
-          <br></br>
-        </ul>
+    <div>
+      <div className="user-header">
+        <NavLink to="/home">
+          <FaHome style={{ fill: '#000' }}size={24} />
+        </NavLink>
+        <NavLink to="/myprofile">
+          {' '}
+          <FaUser style={{ fill: '#000' }} size={21} />
+        </NavLink>
+
+        <h2>{'Welcome ' + loginUser.name + ''}</h2>
+        <button
+          className="my-button"
+          onClick={(props) => handleViewSubscribePlanClick(loginUserId)}
+        >
+          Subscribed Plans
+        </button>
+        <button style={{ backgroundColor: '#ff5252' }} className="my-button">
+          <Link to="/Login">Logout</Link>
+        </button>
       </div>
-    </div>
+    </div>  
   );
 };
 
 export default Header;
-
-

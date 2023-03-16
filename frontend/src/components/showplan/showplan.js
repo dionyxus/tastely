@@ -2,6 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import KitchenHeader from '../homepage/kitchenheader';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { FaBell, FaEnvelope } from 'react-icons/fa';
+import '../ownerpage/ownerpage.css';
+import './showplan.css';
+
+import UserBar from '../homepage/userheader';
 
 const ShowPlan = (props) => {
   const [showplans, setShowPlans] = useState([]);
@@ -31,42 +37,58 @@ const ShowPlan = (props) => {
   }, [apiSuccess]);
 
   return (
-    <div>
-      <KitchenHeader />
-      <div className="showPlans">
-        <h2>Hi {props.loginUser.name} - Your all created plans </h2>
-        <ul>
-          {showplans.map((showplan) => {
-            // console.log(props, showplan);
-            return props.loginUser.name == showplan.username ? (
-              <li key={showplan._id}>
-                <p>Plan title - {showplan.name}</p>
-                <p>Plan Price - {showplan.price}</p>
+    <div className="ownerpage">
+      <div className="side-menu-bar">
+        <KitchenHeader />
+      </div>
 
-                <ul>
-                  {showplan.dynamicfields.map((dynamicfield) => {
-                    return (
-                      <li key={dynamicfield._id}>
-                        <p>
-                          {dynamicfield.key} - {dynamicfield.info}
-                        </p>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <button onClick={() => handleDeleteClick(showplan._id)}>
-                  Delete Plan
-                </button>
-              </li>
-            ) : (
-              ''
-            );
-          })}
-        </ul>
+      <div className="user-header">
+        <UserBar />
+      </div>
+
+      <div className="showPlans">
+        <div class="page-content">
+          <h2 className="heading">ALL PLANS </h2>
+          <ul className="showplan-details">
+            {showplans.map((showplan) => {
+              // console.log(props, showplan);
+              return props.loginUser.name == showplan.username ? (
+                <li key={showplan._id}>
+                  <p style={{ fontSize: '36px', padding: 10 }}>
+                    {showplan.name}
+                  </p>
+                  <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>
+                    ${showplan.price}
+                  </p>
+
+                  <ul className="dynamic-details">
+                    {showplan.dynamicfields.map((dynamicfield) => {
+                      return (
+                        <li key={dynamicfield._id}>
+                          <p>
+                            {dynamicfield.key} - {dynamicfield.info}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <button
+                    style={{ backgroundColor: 'red', color: 'white' }}
+                    className="showplan-button button"
+                    onClick={() => handleDeleteClick(showplan._id)}
+                  >
+                    Delete Plan
+                  </button>
+                </li>
+              ) : (
+                ''
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
 export default ShowPlan;
-

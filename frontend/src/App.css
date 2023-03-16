@@ -1,19 +1,19 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,22 +22,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-input[type=text] {
+/* input[type=text] {
   width: 30%;
 }
 
@@ -47,7 +47,7 @@ input[type=password] {
 
 input[type=email] {
   width: 30%;
-}
+} */
 
 .my-button {
   background-color: #4CAF50; /* Green background color */
@@ -59,6 +59,7 @@ input[type=email] {
   display: inline-block; /* Make button inline */
   font-size: 16px; /* Set font size */
   cursor: pointer; /* Add cursor pointer */
+  border: 1px solid #000;
   border-radius: 4px; /* Add rounded corners */
   transition: background-color 0.3s ease; /* Add transition effect */
 }
@@ -91,4 +92,18 @@ ul{
   background-color: #ddd;
   padding: 10px;
   text-align: center;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  font-size: 42px;
+  margin-bottom: 24px;
 }
