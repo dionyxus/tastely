@@ -22,24 +22,29 @@ const UserSchema = new Schema({
   },
 
   usertype: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
 
   address: {
     type: String,
     required: true
-},
+  },
 
-postalcode: {
-  type: String,
-  required: true
-}, 
+  postalcode: {
+    type: String,
+    required: true
+  },
 
-contact: {
-  type: String,
-  required: true
-}
+  contact: {
+    type: String,
+    required: true
+  },
+
+  imageurl: {
+    type: String,
+    required: true
+  }
 
 
 });

@@ -5,7 +5,7 @@ const userModel = require('../models/users');
 
 //create post route
 router.post ("/register",  (req,res) => {
-    const {name, email, password, usertype, address, postalcode, contact} = req.body;
+    const {name, email, password, usertype, address, postalcode, contact, imageurl} = req.body;
 
     userModel.findOne({email: email}, (err, user) => {
         if(user){
@@ -20,7 +20,8 @@ router.post ("/register",  (req,res) => {
                     usertype,
                     address,
                     postalcode,
-                    contact
+                    contact,
+                    imageurl
                 });
             
                 const saveItem = newUser.save();

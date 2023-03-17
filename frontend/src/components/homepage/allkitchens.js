@@ -54,7 +54,7 @@ const AllKitchens = (props) => {
             
             kitchen.usertype === "Owner" ? (
               <li key={kitchen._id}>
-              <img src={imageUrl} alt="Example" height="300px" />
+              <img src={kitchen.imageurl !== undefined ? kitchen.imageurl : imageUrl} alt="Example" height="300px" />
                 <p style={{ fontSize: '24px', padding: 10 }}>{kitchen.name.toUpperCase()}</p>
                 <button style= {{fontSize: '18px'}}className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >Available Plans</button><br></br><br></br>
               </li>
