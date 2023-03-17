@@ -16,7 +16,12 @@ const SubscribePlanSchema = new Schema({
   user: {
     type: ObjectId,
     ref: 'User',
-  }
+  },
+
+  date: {
+    type: String,
+    ref: 'Date',
+  },
   
 });
 

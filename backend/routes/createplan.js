@@ -29,6 +29,7 @@ router.post('/subscribeplan', (req, res) => {
     const newSubscribePlan = subscribePlanModel({
       plan: req.body.plan,
       user: req.body.user,
+      date: req.body.date
     });
 
     //const saveItem = newSubscribePlan.save();

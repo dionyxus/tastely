@@ -19,10 +19,10 @@ const CustomerOrderConfirmation = () => {
 
       user: JSON.parse(localStorage.getItem('user'))._id,
       plan: planid,
-
+      date: (new Date).toLocaleDateString()
     };
 
-    console.log('data:', data);
+    //console.log('data:', data);
     if (data) {
       axios
         .post(url, data)
