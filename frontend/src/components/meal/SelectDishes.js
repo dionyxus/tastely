@@ -1,5 +1,6 @@
 import Button from "../dishes/Button";
 import { useState, useEffect } from "react";
+import { BACKEND_API } from "../../config";
 
 
 const DishSelect = ({ value, index, selectedDish, dishes }) => {
@@ -41,7 +42,7 @@ const DishSelect = ({ value, index, selectedDish, dishes }) => {
 
 const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
 
-    const DISHES_API_URL = "http://localhost:8080/api/v1/dishes/";
+    const DISHES_API_URL = `${BACKEND_API}/api/v1/dishes/`;
     const [dishes, setDishes] = useState([]);
 
     let dishField = [];

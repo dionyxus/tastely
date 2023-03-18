@@ -7,6 +7,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './createplan.css';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import UserBar from '../homepage/userheader';
+import { BACKEND_API } from '../../config';
 //import DynamicFields from './dynamicfields';
 // import dynamicfield from '../../../../backend/models/dynamicfield';
 // import { Link, Outlet } from 'react-router-dom';
@@ -76,7 +77,7 @@ const CreatePlan = (props) => {
     // const loggeduser = JSON.parse(localStorage.getItem('user'))
     const { name, price } = createPlan;
 
-    const url = 'http://localhost:8080/createplan';
+    const url = `${BACKEND_API}/createplan`;
     const data = {
       name: createPlan.name,
       price: createPlan.price,

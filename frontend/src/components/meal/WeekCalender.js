@@ -1,11 +1,12 @@
 import WeekButton from "./WeekButton";
 import { useState, useEffect } from "react";
 import SelectDishes from "./SelectDishes";
+import { BACKEND_API } from "../../config";
 
 const WeekCalender = ({ orderId }) => {
 
-    const MEAL_API_URL = "http://localhost:8080/api/v1/meal/";
-    const SUBSCRIPTION_API_URL = "http://localhost:8080/showcustomersubscribeplan";
+    const MEAL_API_URL = `${BACKEND_API}/api/v1/meal/`;
+    const SUBSCRIPTION_API_URL = `${BACKEND_API}/showcustomersubscribeplan`;
 
     const [userInfo, setUserInfo] = useState({});
     //let userInfo;

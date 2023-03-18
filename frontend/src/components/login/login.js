@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import landing from './landing.JPG';
+import { BACKEND_API } from '../../config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -41,7 +42,7 @@ const Login = (props) => {
     // event.preventDefault();
 
     axios
-      .post(`http://localhost:8080/login`, user)
+      .post(`${BACKEND_API}/login`, user)
 
       .then((res) => {
         props.setLoginUser(res.data.user);

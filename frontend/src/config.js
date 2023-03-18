@@ -1,0 +1,1 @@
+export const BACKEND_API = "http://52.52.60.61:8080"

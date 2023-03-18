@@ -7,10 +7,11 @@ import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './DishesStyle.css';
 import UserBar from '../homepage/userheader';
+import { BACKEND_API } from '../../config';
 
 const DishPage = (props) => {
     //console.log(props);
-    const API_URL = "http://localhost:8080/api/v1/dishes/";
+    const API_URL = `${BACKEND_API}/api/v1/dishes/`;
 
     const [dishes, setDishes] = useState([
     ]);

@@ -2,9 +2,12 @@ import Button from "../dishes/Button"
 import Header from "../homepage/header"
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { BACKEND_API } from "../../config";
+
 import './CustomerOrderConfirmation.css' 
-// import userform from "../userform/form"
 import { useState } from "react";
+
 
 
 const CustomerOrderConfirmation = ({}) => {
@@ -17,7 +20,7 @@ const CustomerOrderConfirmation = ({}) => {
 
   const handleOnClickConfirm = () => {
 
-    const url = 'http://localhost:8080/subscribeplan';
+    const url = `${BACKEND_API}/subscribeplan`;
 
     const data = {
 
