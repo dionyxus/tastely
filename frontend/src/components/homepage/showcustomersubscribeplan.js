@@ -6,6 +6,7 @@ import KitchenHeader from './kitchenheader';
 import "../ownerpage/ownerpage.css";
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import UserBar from './userheader';
+import { BACKEND_API } from '../../config';
 // import { Link, Outlet } from 'react-router-dom';
 
 const ShowCustomerSubscribePlan = (props) => {
@@ -19,7 +20,7 @@ const ShowCustomerSubscribePlan = (props) => {
     const getShowCustomerSubscribePlans = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/showcustomersubscribeplan`,
+          `${BACKEND_API}/showcustomersubscribeplan`,
         );
         setShowCustomerSubscribePlans(res.data);
         // console.log(res.data);

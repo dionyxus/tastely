@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import ViewDishList from "./ViewDishList";
+import { BACKEND_API } from "../../config";
 
 const ViewDishes = (props) => {
 
-    const API_URL = "http://localhost:8080/api/v1/dishes/";
+    const API_URL = `${BACKEND_API}/api/v1/dishes/`;
 
     const [dishes, setDishes] = useState([
     ]);

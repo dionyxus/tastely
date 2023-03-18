@@ -6,6 +6,7 @@ import { Link, useParams, NavLink, useNavigate } from 'react-router-dom';
 import AllKitchens from './allkitchens';
 import SubscribePlan from './subscribeplan';
 import ViewDishes from '../dishes/ViewDishes';
+import { BACKEND_API } from '../../config';
 
 
 const SingleUserKitchens = (props) => {
@@ -38,7 +39,7 @@ const SingleUserKitchens = (props) => {
   useEffect(() => {
     const getSingleUserKitchens = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/showplan/${userid}`);
+        const res = await axios.get(`${BACKEND_API}/showplan/${userid}`);
         setSingleKitchenOwnerPlans(res.data);
         console.log(res.data);
       } catch (error) {

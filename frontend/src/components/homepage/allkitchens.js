@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './header';
 import ShowPlan from '../showplan/showplan';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { BACKEND_API } from '../../config';
 // import "./allkitchens.css"
 
 const AllKitchens = (props) => {
@@ -34,7 +35,7 @@ const AllKitchens = (props) => {
   useEffect(() => {
     const getAllKitchens = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/allkitchens');
+        const res = await axios.get(`${BACKEND_API}/allkitchens`);
         setAllKitchens(res.data);
         console.log(res.data);
       } catch (error) {

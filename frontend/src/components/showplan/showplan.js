@@ -4,6 +4,7 @@ import axios from 'axios';
 import KitchenHeader from '../homepage/kitchenheader';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
+import { BACKEND_API } from '../../config';
 import '../ownerpage/ownerpage.css';
 import './showplan.css';
 
@@ -16,7 +17,7 @@ const ShowPlan = (props) => {
   //assignment delete button handle
   const handleDeleteClick = (id) => {
     setApiSuccess(false);
-    axios.delete(`http://localhost:8080/showplan/${id}`).then(() => {
+    axios.delete(`${BACKEND_API}/showplan/${id}`).then(() => {
       setApiSuccess(true);
       console.log('delete success');
     });
@@ -26,7 +27,7 @@ const ShowPlan = (props) => {
   useEffect(() => {
     const getShowPlans = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/showplan');
+        const res = await axios.get(`${BACKEND_API}/showplan`);
         setShowPlans(res.data);
         console.log(res.data);
       } catch (error) {

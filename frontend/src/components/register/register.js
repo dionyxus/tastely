@@ -3,8 +3,15 @@ import axios from "axios"
 import { Link } from 'react-router-dom'
 import landing from './landing.JPG';
 import "./register.css"
+import { BACKEND_API } from "../../config";
 
 const Register = () => {
+
+
+
+    //  const backendUrl = process.env.REACT_APP_URL;
+
+    // const { PROJECT_BACKEND_URL } = process.env;
 
     const [ user, setUser] = useState({
         name: "",
@@ -27,6 +34,7 @@ const Register = () => {
 
     const showData = () => {
         console.log('Form:', user)
+        console.log('URL', process.env.REACT_APP_URL)
     }
 
     const register = () => {
@@ -34,7 +42,7 @@ const Register = () => {
         const {name, email, password, reEnterPassword, address, postalcode, contact} = user
         if (name && email && password && (password === reEnterPassword) && address && postalcode && contact ) {
                   
-        axios.post("http://localhost:8080/register", user)
+        axios.post(`${BACKEND_API}/register`, user)
         .then(res => alert("Congratulations  " + user.name+ "  Your account has been registered"),
         localStorage.setItem('user', JSON.stringify(user))
         )
