@@ -1,0 +1,58 @@
+ h2{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+   }
+.orderconfirm{
+    display: flex;
+    text-align: center;
+
+
+}
+input[type="text"] {
+    width: 300px; /* set the width to 300 pixels */
+    height: 50px; /* set the height to 50 pixels */
+  }
+  input[type="text"]:hover{
+ 
+    border: solid black 2px;
+  }
+
+.container1{
+    display: flex;
+    width: 50%;
+    height: 70px;
+    padding: 20px;
+    margin-left: 200px; 
+    justify-content: left;
+
+} 
+.container2{
+    display: flex;
+    width: 50%;
+    height: 70px;
+    padding: 20px;
+    margin-left: -50px; 
+    justify-content: left;
+
+
+}
+
+/* .container3 {
+    position: fixed;
+    height: 500px; /* Just an example height 
+    bottom: 0;
+  } */
+  
+  .click {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -50px;
+
+  }
+
+  
+ 
+ 
