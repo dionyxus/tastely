@@ -5,15 +5,16 @@ import KitchenHeader from '../homepage/kitchenheader';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import UserBar from '../homepage/userheader';
+import { BACKEND_API } from '../../config';
 
 const ViewMealPage = (props) => {
 
-    const MEAL_API_URL = "http://localhost:8080/api/v1/meal/";
+    const MEAL_API_URL = `${BACKEND_API}/api/v1/meal/`;
 
     const [mealsData, setMealsData] = useState([]);
     const [mealTiles, setMealTiles] = useState([]);
 
-    const DISHES_API_URL = "http://localhost:8080/api/v1/dishes/";
+    const DISHES_API_URL = `${BACKEND_API}/api/v1/dishes/`;
     //    const [dishes, setDishes] = useState([]);
     let dishes = [];
 

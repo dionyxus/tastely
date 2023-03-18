@@ -4,6 +4,7 @@ import axios from 'axios';
 import {NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import Header from './header';
 // import {NavLink, Link, Outlet } from 'react-router-dom';
+import { BACKEND_API } from '../../config';
 
 const ShowSubscribePlan = (props) => {
   const [showSubscribePlans, setShowSubscribePlans] = useState([]);
@@ -28,7 +29,7 @@ const ShowSubscribePlan = (props) => {
   //assignment delete button handle
   const handleDeleteClick = (id) => {
     setApiSuccess(false);
-    axios.delete(`http://localhost:8080/showsubscribeplan/${id}`).then(() => {
+    axios.delete(`${BACKEND_API}/showsubscribeplan/${id}`).then(() => {
       setApiSuccess(true);
       console.log('delete success');
     });
@@ -39,7 +40,7 @@ const ShowSubscribePlan = (props) => {
     const getShowSubscribePlans = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/showsubscribeplan/${userid}`,
+          `${BACKEND_API}/showsubscribeplan/${userid}`,
         );
         setShowSubscribePlans(res.data);
         // console.log(res.data);
