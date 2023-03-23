@@ -7,6 +7,7 @@ import AllKitchens from './allkitchens';
 import SubscribePlan from './subscribeplan';
 import ViewDishes from '../dishes/ViewDishes';
 import { BACKEND_API } from '../../config';
+import Footer from '../files/footer/Footer';
 
 
 const SingleUserKitchens = (props) => {
@@ -143,6 +144,7 @@ const SingleUserKitchens = (props) => {
         <ViewDishes kitchenId={userid}/>
 
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaHome, FaUser } from 'react-icons/fa';
-
+import logo from './logo.png';
 // import "./header.css"
 
 const Header = (props) => {
@@ -30,6 +30,12 @@ const Header = (props) => {
   return (
     <div>
       <div className="user-header">
+
+      <div className="header-logo">
+      <a href="/home"><img src={logo} alt="Logo" style={{ objectFit: 'contain', transform: 'scale(1.8x)' }} /></a>
+        
+      </div>
+
         <NavLink to="/home">
           <FaHome style={{ fill: '#000' }}size={24} />
         </NavLink>

@@ -8,6 +8,7 @@ import './createplan.css';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import UserBar from '../homepage/userheader';
 import { BACKEND_API } from '../../config';
+import Footer from '../files/footer/Footer';
 //import DynamicFields from './dynamicfields';
 // import dynamicfield from '../../../../backend/models/dynamicfield';
 // import { Link, Outlet } from 'react-router-dom';
@@ -158,6 +159,8 @@ const CreatePlan = (props) => {
           </div>
         </div>
       </div>
+    <Footer/>
+
     </div>
   );
 };

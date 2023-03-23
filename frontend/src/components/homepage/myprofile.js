@@ -7,6 +7,7 @@ import { FaBell, FaEnvelope } from 'react-icons/fa';
 import './myprofile.css';
 import '../ownerpage/ownerpage.css';
 import UserBar from './userheader';
+import Footer from '../files/footer/Footer';
 
 const MyProfile = (props) => {
   const navigate = useNavigate();
@@ -32,6 +33,8 @@ const MyProfile = (props) => {
           <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
         </div>
         </div>
+    <Footer/>
+
         </div>
       );
     } else {
@@ -51,6 +54,8 @@ const MyProfile = (props) => {
         <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
         </div>
       </div>
+    <Footer/>
+
       </div>
       );
     }
