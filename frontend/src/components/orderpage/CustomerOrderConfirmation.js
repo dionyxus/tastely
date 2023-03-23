@@ -7,6 +7,7 @@ import { BACKEND_API } from "../../config";
 
 import './CustomerOrderConfirmation.css' 
 import { useState } from "react";
+import Footer from "../files/footer/Footer";
 
 
 
@@ -139,7 +140,9 @@ const CustomerOrderConfirmation = ({}) => {
               <input type="integer"
                 value={Expiry}
                 onChange={(e) => expiry(e.target.value)}
-                placeholder="Expiry Date" />&nbsp;
+                placeholder="Expiry Date" />
+                </div><br></br>
+                <div className="form-col-12 form-col-md-6 form-col-lg-3">
               {/* <label>CVV</label> */}
               <input type="integer"
                 value={CVV}
@@ -150,11 +153,13 @@ const CustomerOrderConfirmation = ({}) => {
             <br></br>
             <Button className="confirm" text={"Confirm Order"} onClick={handleOnClickConfirm} style="background-color:brown" />
           </div>
-
+          
         </div>
+       
       </div>
 
     </div>
+    
   )
 }
 

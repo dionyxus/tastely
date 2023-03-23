@@ -12,6 +12,8 @@
 	background-color: brown;
 	display: inline-block;
     padding: 30px 15px;
+    height: 100%;
+    position: fixed;
 }
 
 .side-menu-bar ul {
@@ -37,13 +39,14 @@
 
 
 .user-header {
-    margin: 0px;
-    padding: 10px;
-    background-color: antiquewhite;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 15px;
+	margin: 0px;
+	padding: 10px;
+	background-color: antiquewhite;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	gap: 15px;
+	position: relative;
 }
 
 .user-header h2 {
@@ -63,6 +66,14 @@
 }
 
 .page-content {
-	padding: 30px;
-}
+    padding: 30px;
+    min-height: calc(100vh - 115px);
+  }
 
+  .user-header .header-logo {
+	position: absolute;
+	left: 15px;
+	top: 12px;
+	display: inline-block;
+	width: auto;
+}

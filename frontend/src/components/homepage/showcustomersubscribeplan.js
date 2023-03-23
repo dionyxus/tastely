@@ -7,6 +7,7 @@ import "../ownerpage/ownerpage.css";
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import UserBar from './userheader';
 import { BACKEND_API } from '../../config';
+import Footer from '../files/footer/Footer';
 // import { Link, Outlet } from 'react-router-dom';
 
 const ShowCustomerSubscribePlan = (props) => {
@@ -49,6 +50,7 @@ const ShowCustomerSubscribePlan = (props) => {
             return props.loginUser.name ==
               showCustomerSubscribePlan.plan.username ? (
               <li key={showCustomerSubscribePlan._id}>
+              
                 <p>{showCustomerSubscribePlan.plan.name}</p>
                 <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showCustomerSubscribePlan.plan.price}</p>
                 <p>User Name - {showCustomerSubscribePlan.user.name}</p>
@@ -62,6 +64,8 @@ const ShowCustomerSubscribePlan = (props) => {
           })}
         </ul>
       </div>
+    <Footer/>
+
     </div>
   );
 };

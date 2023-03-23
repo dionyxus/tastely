@@ -64,7 +64,8 @@ const ShowSubscribePlan = (props) => {
             console.log(showSubscribePlan);
             return 2 ? (
               <li key={showSubscribePlan._id}>
-                <p style={{ fontSize: '32px', padding: 10 }}>{showSubscribePlan.plan.name}</p>
+              
+                <p style={{ fontSize: '28px', padding: 10 }}>{showSubscribePlan.plan.username} - {showSubscribePlan.plan.name}</p>
                 <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showSubscribePlan.plan.price}</p>
                 <ul className="dynamic-details">
                     {showSubscribePlan.plan.dynamicfields.map((dynamicfield) => {
