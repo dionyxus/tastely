@@ -20,6 +20,9 @@ const MealPage = (props) => {
     <div>
       <Header />
       <div className="" style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
+        <br></br>
+        <h2 style={{textAlign:"center"}}>Set Meals</h2>
+        <br></br>
         <WeekCalender orderId={orderid} />
       </div>
     </div>
