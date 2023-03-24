@@ -7,6 +7,7 @@ import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { BACKEND_API } from '../../config';
 import '../ownerpage/ownerpage.css';
 import './showplan.css';
+import Footer from '../files/footer/Footer';
 
 import UserBar from '../homepage/userheader';
 
@@ -87,7 +88,9 @@ const ShowPlan = (props) => {
             })}
           </ul>
         </div>
+        
       </div>
+      <Footer/>
     </div>
   );
 };
