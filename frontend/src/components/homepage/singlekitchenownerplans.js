@@ -42,7 +42,7 @@ const SingleUserKitchens = (props) => {
       try {
         const res = await axios.get(`${BACKEND_API}/showplan/${userid}`);
         setSingleKitchenOwnerPlans(res.data);
-        console.log(res.data);
+//        console.log(res.data);
       } catch (error) {
         console.log(error);
       }

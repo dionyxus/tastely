@@ -12,7 +12,6 @@ const AllKitchens = (props) => {
   const [allKitchens, setAllKitchens] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
   const navigate = useNavigate();
-  //   assignment delete button handle
 
   // const navigate = useNavigate();
 
