@@ -11,20 +11,16 @@ import Footer from "../files/footer/Footer";
 
 
 
-const CustomerOrderConfirmation = ({}) => {
+const CustomerOrderConfirmation = (props) => {
 
   const navigate = useNavigate();
   let { planid } = useParams();
 
-  console.log("Plan ID - " + planid);
-
+  const url = `${BACKEND_API}/subscribeplan`;
 
   const handleOnClickConfirm = () => {
 
-    const url = `${BACKEND_API}/subscribeplan`;
-
     const data = {
-
       user: JSON.parse(localStorage.getItem('user'))._id,
       plan: planid,
       date: (new Date).toLocaleDateString()
@@ -39,7 +35,7 @@ const CustomerOrderConfirmation = ({}) => {
 
           //Open Meal Page
           //Make Order ID too.
-          //console.log('res - ',res.data);
+          console.log('res - ',res.data);
           navigate(`/setmealpage/${res.data.data._id}`);
 
         });
@@ -49,12 +45,9 @@ const CustomerOrderConfirmation = ({}) => {
     }
   }
 
-
-  const [StreetName, street] = useState("");
-  const [Unit, unit] = useState("");
-  const [PostalCode, postalcode] = useState("");
-  const [CityName, city] = useState("");
-  const [Province, province] = useState("");
+  const [Address, setAddress] = useState(props.loginUser.address);
+  const [PostalCode, setPostalCode] = useState(props.loginUser.postalcode);
+  const [Contact, setContact] = useState(props.loginUser.contact);
   const [CardHolder, cardholder] = useState("");
   const [CardNum, cardnum] = useState("");
   const [Expiry, expiry] = useState("");
@@ -74,44 +67,32 @@ const CustomerOrderConfirmation = ({}) => {
 
 
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label></label> */}
-              {/* <label>Streer Name</label> */}
+              <label>Address</label>
+              <br></br>
               <input type="text"
-                value={StreetName}
-                onChange={(e) => street(e.target.value)}
-                placeholder="Streer Name" />
+                value={Address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Address" />
             </div><br></br>
 
-            <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>Unit</label> */}
-              <input type="text"
-                value={Unit}
-                onChange={(e) => unit(e.target.value)}
-                placeholder="Unit" />
-            </div><br></br>
             <div className="form-col-12 form-col-lg-6">
-              {/* <label>Postal Code</label> */}
+              <label>Postal Code</label>
+              <br></br>
               <input type="text"
                 value={PostalCode}
-                onChange={(e) => postalcode(e.target.value)}
+                onChange={(e) => setPostalCode(e.target.value)}
                 placeholder="Postal Code" />
             </div><br></br>
 
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>City</label> */}
+              <label>Contact No</label>
+              <br></br>
               <input type="text"
-                value={CityName}
-                onChange={(e) => city(e.target.value)}
-                placeholder="City" />
+                value={Contact}
+                onChange={(e) => setContact(e.target.value)}
+                placeholder="Contact" />
             </div><br></br>
 
-            <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>Province</label> */}
-              <input type="text"
-                value={Province}
-                onChange={(e) => province(e.target.value)}
-                placeholder="Province" />
-            </div><br></br>
           </div>
         </div>
 

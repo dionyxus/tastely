@@ -12,7 +12,6 @@ const AllKitchens = (props) => {
   const [allKitchens, setAllKitchens] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
   const navigate = useNavigate();
-  //   assignment delete button handle
 
   // const navigate = useNavigate();
 
@@ -58,7 +57,7 @@ const AllKitchens = (props) => {
               <a  onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)}><img src={kitchen.imageurl !== undefined ? kitchen.imageurl : imageUrl} alt="Example" height="200px" /></a>
               
                 <p style={{ fontSize: '24px', padding: 10 }}>{kitchen.name.toUpperCase()}</p>
-                <button style= {{fontSize: '18px'}}className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >Available Plans</button>
+                {/* <button style= {{fontSize: '18px'}}className="my-button" onClick={() => handleViewPlanClick(kitchen._id, kitchen.name)} >Available Plans</button> */}
               </li>
             ) : (
               ''

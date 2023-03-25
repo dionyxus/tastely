@@ -46,6 +46,8 @@ const WeekCalender = ({ orderId }) => {
     const [testingText, setTestingText] = useState("Testing Text");
     const [noOfDishes, setNoOfDishes] = useState(noOfDishesFromDB);
     const [enableDishesComp, setEnableDishesComp] = useState(false);
+    const [weekStartDate, setWeekStartDate] = useState("Monday");
+    const [weekEndDate, setWeekEndDate] = useState("Sunday");
 
     const makeMealDataForWeek = (mealData) => {
         let weekData = [];
@@ -53,6 +55,15 @@ const WeekCalender = ({ orderId }) => {
         for (let i = 0; i < 7; i++) {
             let date = new Date(today.setDate(today.getDate() - today.getDay() + i + 1));
             weekData[i] = { date: date.toLocaleDateString() };
+
+            switch (i) {
+                case 0:
+                    setWeekStartDate(date.toDateString().slice(4));
+                    break;
+                case 6:
+                    setWeekEndDate(date.toDateString().slice(4));
+                    break;
+            }
 
             let dateMeal = mealData.filter(meal => meal.date === date.toLocaleDateString());
             if (dateMeal.length > 0 && dateMeal[0].dishes.length > 0) {
@@ -67,7 +78,7 @@ const WeekCalender = ({ orderId }) => {
             }
 
             let day = new Intl.DateTimeFormat("en-US", options).format(date);
-            weekData[i].dayText = date.getDate() + " " + day;
+            weekData[i].dayText = day + " " + date.getDate();
 
             let color = "black";
             if (weekData[i].date === -1) {
@@ -81,7 +92,7 @@ const WeekCalender = ({ orderId }) => {
             weekData[i].id = i;
 
         }
-        setAllMealData(weekData);       
+        setAllMealData(weekData);
     }
 
     const onWeekButtonClick = (data) => {
@@ -99,31 +110,6 @@ const WeekCalender = ({ orderId }) => {
         setTestingText(testText);
         //        setNoOfDishes(noOfDishesFromDB);
         setMealData(data);
-    };
-
-    const makeWeekCal = () => {
-        let buttons = [];
-
-        for (let i = 0; i < 7; i++) {
-            let date = new Date(currDate.setDate(currDate.getDate() - currDate.getDay() + i + 1));
-            let day = new Intl.DateTimeFormat("en-US", options).format(date);
-            let dayText = date.getDate() + " " + day;
-
-            let data;// = dishData[i];
-            let color = "black";
-
-            if (data.date === -1) {
-                color = "red";
-            } else if (data.dishes.length === 0) {
-                color = "green";
-            } else {
-                color = "grey";
-            }
-
-
-            buttons.push(<WeekButton data={data} color={color} key={i} text={dayText} onClick={onWeekButtonClick} />);
-        }
-        return buttons;
     };
 
     const postMeal = (meal) => {
@@ -171,7 +157,7 @@ const WeekCalender = ({ orderId }) => {
 
         let mealData = allMealData;
         mealData.map(meal => {
-            if(meal.date === newMeal.date){
+            if (meal.date === newMeal.date) {
                 meal.dishes = newMeal.dishes;
                 meal.color = "grey";
                 meal.dishesSelected = true;
@@ -183,6 +169,7 @@ const WeekCalender = ({ orderId }) => {
 
     return (
         <div>
+            <h3 style={{textAlign:"center"}}>{weekStartDate} - {weekEndDate}</h3>
             {allMealData.map(meal => <WeekButton data={meal} color={meal.color} key={meal.id} text={meal.dayText} onClick={onWeekButtonClick} />)}
             {/* {makeWeekCal()} */}
             <div className="container">

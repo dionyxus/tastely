@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {NavLink, Link, useParams, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import Header from './header';
 // import {NavLink, Link, Outlet } from 'react-router-dom';
 import { BACKEND_API } from '../../config';
@@ -10,23 +10,16 @@ const ShowSubscribePlan = (props) => {
   const [showSubscribePlans, setShowSubscribePlans] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
 
-  //   const navigate = useNavigate();
-  //   assignment delete button handle
-
-  // const handleViewSubscribePlanClick = (userid) => {
-  //   navigate(`/showsubscribeplans/${userid}`)
-
-  // };
-
   let { userid } = useParams();
 
   const navigate = useNavigate();
 
   // const { id } = useParams();
 
- 
+  const handleSetMealsClick = (orderId) => {
+    navigate(`/setmealpage/${orderId}`);
+  }
 
-  //assignment delete button handle
   const handleDeleteClick = (id) => {
     setApiSuccess(false);
     axios.delete(`${BACKEND_API}/showsubscribeplan/${id}`).then(() => {
@@ -35,7 +28,6 @@ const ShowSubscribePlan = (props) => {
     });
   };
 
-  //write a hook to get data from the database and set the data to the todoitems state variable
   useEffect(() => {
     const getShowSubscribePlans = async () => {
       try {
@@ -53,31 +45,38 @@ const ShowSubscribePlan = (props) => {
 
   return (
     <div className="homepage">
-      
-   <Header />
 
-      
+      <Header />
+
+
       <div className="page-content">
-      <h2 className='heading'>YOUR SUBSCRIBED PLAN </h2>
+        <h2 className='heading'>MY SUBSCRIPTIONS </h2>
         <ul className="showplan-details">
           {showSubscribePlans.map((showSubscribePlan) => {
             console.log(showSubscribePlan);
             return 2 ? (
               <li key={showSubscribePlan._id}>
-              
+
                 <p style={{ fontSize: '28px', padding: 10 }}>{showSubscribePlan.plan.username} - {showSubscribePlan.plan.name}</p>
                 <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showSubscribePlan.plan.price}</p>
                 <ul className="dynamic-details">
-                    {showSubscribePlan.plan.dynamicfields.map((dynamicfield) => {
-                      return (
-                        <li key={dynamicfield._id}>
-                          <p>
-                            {dynamicfield.key} - {dynamicfield.info}
-                          </p>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  {showSubscribePlan.plan.dynamicfields.map((dynamicfield) => {
+                    return (
+                      <li key={dynamicfield._id}>
+                        <p>
+                          {dynamicfield.key} - {dynamicfield.info}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <button style={{ marginTop: '40px' }}
+                  className="my-button"
+                  onClick={() => handleSetMealsClick(showSubscribePlan._id)}>
+                  Set Meals
+                </button>
+                <br></br>
                 <button style={{ marginTop: '40px' }}
                   className="my-button"
                   onClick={() => handleDeleteClick(showSubscribePlan._id)}

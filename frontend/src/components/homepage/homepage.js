@@ -16,12 +16,6 @@ import '../ownerpage/ownerpage.css'
 
 const Homepage = (props) => {
 
-  
-
-  
-
-  
-
   return (
     <div className="homepage">
    <Header />
@@ -32,7 +26,7 @@ const Homepage = (props) => {
   
       <div class="page-content">
 
-      <h2 className='heading'>EXPOLORE ALL REGISTERED KITCHENS</h2>
+      <h2 className='heading'>EXPLORE KITCHENS</h2>
       <AllKitchens />
       </div>
       <Footer/>
