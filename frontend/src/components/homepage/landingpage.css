@@ -54,6 +54,11 @@ ul a {
     gap: 10px;
 }
 
+.landing-logo img {
+	height: 200px;
+	width: 400px;
+}
+
 @media (max-width: 1024px) {
     .landing-components {
         grid-template-columns: 1fr;

@@ -25,8 +25,8 @@ const LandingPage = (props) => {
    
       <div className="login-signup">
 
-      <div>
-      <img src={logo} alt="Logo" />
+      <div className='landing-logo'>
+      <img src={logo} alt="Logo"/>
       </div>
 
         <ul className="nav">

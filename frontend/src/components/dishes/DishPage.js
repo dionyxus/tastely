@@ -71,7 +71,7 @@ const DishPage = (props) => {
     }
 
     return (
-        <div className="">
+        <div className="ownerpage">
             <div className="side-menu-bar">
                 <KitchenHeader />
             </div>

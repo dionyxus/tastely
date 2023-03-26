@@ -14,7 +14,7 @@ import Footer from '../files/footer/Footer';
 // import { Link, Outlet } from 'react-router-dom';
 
 
-const buttonStyle = { backgroundColor: '#EB455F', color: 'black', border: '1px solid #000', borderRadius: '1px'}
+
 
 const CreatePlan = (props) => {
   const [createPlan, setCreatePlan] = useState({
@@ -146,20 +146,20 @@ const CreatePlan = (props) => {
                     value={input.info}
                     onChange={(event) => handleFormChange(index, event)}
                   />
-                  <button style={buttonStyle} onClick={() => removeFields(index)}>Remove</button>
-                  <button style={{ backgroundColor: '#03C988', color: 'black', border: '1px solid #000', borderRadius: '1px'}} onClick={addFields}>Add More</button>
+                  <button  className='my-button3'  onClick={() => removeFields(index)}>Remove</button>
+                  <button className='my-button3'  onClick={addFields}>Add More</button>
                   <br></br>
                 </div>
               );
             })}
 
-            <button className="my-button" onClick={submitplan}>
+            <button className="my-button2" onClick={submitplan}>
               Submit Plan
             </button>
           </div>
         </div>
       </div>
-    <Footer/>
+  
 
     </div>
   );

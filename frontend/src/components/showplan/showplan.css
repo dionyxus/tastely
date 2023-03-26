@@ -16,11 +16,19 @@
     text-align: center;
     position: relative;
     /* padding-bottom: 70px; */
+	background-color: #E4E6C3;
 }
+
+.showplan-details > li:hover {
+	
+	transform: scale(1.05);
+}
+
 
 .showplan-details > li > p {
 	margin: 0;
     margin-bottom: 10px;
+	
 }
 
 .dynamic-details {
@@ -34,6 +42,11 @@
 	padding: 10px 15px;
 	margin: 0;
 
+}
+
+.show-plan-button {
+	margin-top: 50px;
+	/* margin-bottom: 50px; */
 }
 
 .showplan-button {

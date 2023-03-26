@@ -4,6 +4,7 @@ import Button from './Button'
 const Header = ({ onAdd, showAdd }) => {
 
     return (
+        
         <header className="header">
             <h1>Dishes</h1>
             <Button

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink, Link, useParams, useNavigate } from 'react-router-dom';
 import Header from './header';
+import Footer from '../files/footer/Footer';
 // import {NavLink, Link, Outlet } from 'react-router-dom';
 import { BACKEND_API } from '../../config';
 
@@ -71,14 +72,14 @@ const ShowSubscribePlan = (props) => {
                   })}
                 </ul>
 
-                <button style={{ marginTop: '40px' }}
-                  className="my-button"
+                <button style={{ marginTop: '40px'  }}
+                  className="my-button2"
                   onClick={() => handleSetMealsClick(showSubscribePlan._id)}>
                   Set Meals
                 </button>
                 <br></br>
-                <button style={{ marginTop: '40px' }}
-                  className="my-button"
+                <button style={{  marginTop: '40px' }}
+                  className="my-button2"
                   onClick={() => handleDeleteClick(showSubscribePlan._id)}
                 >
                   Unsubscribe
@@ -90,6 +91,7 @@ const ShowSubscribePlan = (props) => {
           })}
         </ul>
       </div>
+      <Footer/>
     </div>
   );
 };

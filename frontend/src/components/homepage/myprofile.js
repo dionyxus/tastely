@@ -33,7 +33,7 @@ const MyProfile = (props) => {
           <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
         </div>
         </div>
-    <Footer/>
+
 
         </div>
       );

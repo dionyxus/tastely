@@ -127,7 +127,7 @@ const SingleUserKitchens = (props) => {
                     })}
                   </ul>
 
-                  <button style={{ marginTop: '40px' }} className="my-button"
+                  <button style={{ marginTop: '40px' }} className="my-button2"
                     onClick={() => subscribePlanClick(singleKitchenOwnerPlan._id, singleKitchenOwnerPlan.name)}
                   >
                     Subscribe

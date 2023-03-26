@@ -3,8 +3,8 @@ import React from 'react'
 const MealDetails = ({ mealData, dishesData }) => {
 
   return (
-    <div>
-      <h3>MealDetails</h3>
+    <div className='single-meal-detail'>
+      <h3>Meal Details</h3>
       <p>User Name - {mealData.customerName}</p>
       <p>KitchenName - {mealData.kitchenName}</p>
       <p>PlanName - {mealData.planName}</p>

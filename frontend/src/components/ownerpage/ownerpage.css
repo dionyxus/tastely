@@ -9,7 +9,7 @@
 	min-height: 100vh;
 	top: 0;
 	left: 0;
-	background-color: brown;
+	background-color: #261C15;
 	display: inline-block;
     padding: 30px 15px;
     height: 100%;
@@ -23,25 +23,26 @@
 }
 
 .side-menu-bar ul a{
-	color: white;
+	color: #F7F2F2;
     padding: 10px;
 }
 
 .side-menu-bar ul a.active{
-	color: yellow;
+	color: #C5D86D;
     
 }
 
 .side-menu-bar ul a:hover{
-	color: yellow;
+	color: #F05D23;
+	transform: scale(1.08);
     
 }
 
 
 .user-header {
 	margin: 0px;
-	padding: 10px;
-	background-color: antiquewhite;
+	padding: 10px 60px;
+	background-color: #F7F7F2;
 	display: flex;
 	align-items: center;
 	justify-content: end;
@@ -58,10 +59,13 @@
 	margin: 0;
 }
 
+.side-menu-bar svg {
+	font-size: 25px;
+}
 
 
 .user-header button a {
-    color: white;
+    color: #261C15;
     text-decoration: none;
 }
 
@@ -72,7 +76,7 @@
 
   .user-header .header-logo {
 	position: absolute;
-	left: 15px;
+	left: 50px;
 	top: 12px;
 	display: inline-block;
 	width: auto;

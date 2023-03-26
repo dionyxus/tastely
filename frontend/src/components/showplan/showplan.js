@@ -74,13 +74,16 @@ const ShowPlan = (props) => {
                       );
                     })}
                   </ul>
+                  <div class="show-plan-button">
                   <button
-                    style={{ backgroundColor: 'red', color: 'white' }}
-                    className="showplan-button button"
+                   
+                    className="showplan-button my-button2"
                     onClick={() => handleDeleteClick(showplan._id)}
                   >
                     Delete Plan
                   </button>
+                  </div>
+                  
                 </li>
               ) : (
                 ''
@@ -90,7 +93,7 @@ const ShowPlan = (props) => {
         </div>
         
       </div>
-      <Footer/>
+     
     </div>
   );
 };
