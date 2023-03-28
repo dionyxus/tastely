@@ -1,5 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
+
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './userheader.css';
@@ -8,6 +9,12 @@ import React from 'react';
 const UserBar = (props) => {
 
     const [loginUser, setLoginUser] = useState({});
+
+    function handleLogout() {
+      // setUser(null);
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+    }
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
@@ -28,10 +35,10 @@ const UserBar = (props) => {
       </form>
     </div>
     <div class="side-header-details">
-    <FaBell />
-      <FaEnvelope />
+    <FaBell className='icon'/>
+      <FaEnvelope className='icon'/>
       <h2>{'Welcome ' + loginUser.name + ''}</h2>
-        <button style={{ backgroundColor: '#ff5252' }} className="my-button">
+        <button onClick={handleLogout} className="my-button">
           <Link to="/Login">Logout</Link>
         </button>
         </div>

@@ -3,6 +3,7 @@ import WeekCalender from "./WeekCalender"
 import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { NavLink, useParams, Link, useNavigate } from 'react-router-dom';
 //import ViewMealPage from "./ViewMealPage";
+import Footer from "../files/footer/Footer";
 
 const MealPage = (props) => {
 
@@ -25,6 +26,7 @@ const MealPage = (props) => {
         <br></br>
         <WeekCalender orderId={orderid} />
       </div>
+      
     </div>
   )
 }

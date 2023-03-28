@@ -27,21 +27,26 @@ const Header = (props) => {
     navigate(`/showsubscribeplans/${id}`);
   };
 
+  function handleLogout() {
+    // setUser(null);
+    localStorage.removeItem('user');
+    window.location.href = '/login';
+  }
+
   return (
     <div>
       <div className="user-header">
 
       <div className="header-logo">
       <a href="/home"><img src={logo} alt="Logo" style={{ objectFit: 'contain', transform: 'scale(1.8x)' }} /></a>
-        
       </div>
 
         <NavLink to="/home">
-          <FaHome style={{ fill: '#000' }}size={24} />
+          <FaHome style={{ fill: '#000' }}size={24} className="icon"/>
         </NavLink>
         <NavLink to="/myprofile">
           {' '}
-          <FaUser style={{ fill: '#000' }} size={21} />
+          <FaUser style={{ fill: '#000' }} size={21} className="icon"/>
         </NavLink>
 
         <h2>{'Welcome ' + loginUser.name + ''}</h2>
@@ -51,8 +56,8 @@ const Header = (props) => {
         >
           Subscribed Plans
         </button>
-        <button style={{ backgroundColor: '#ff5252' }} className="my-button">
-          <Link to="/Login">Logout</Link>
+        <button   onClick={handleLogout} className="my-button">
+          Logout
         </button>
       </div>
     </div>  

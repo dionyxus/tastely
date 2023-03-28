@@ -64,7 +64,7 @@ const ShowCustomerSubscribePlan = (props) => {
           })}
         </ul>
       </div>
-    <Footer/>
+   
 
     </div>
   );

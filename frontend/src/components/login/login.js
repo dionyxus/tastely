@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import landing from './landing.JPG';
+import landing2 from './login.png';
 import { BACKEND_API } from '../../config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

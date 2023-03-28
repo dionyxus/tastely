@@ -20,7 +20,7 @@ const Homepage = (props) => {
     <div className="homepage">
    <Header />
    <div className='banner-image'>
-   <img src={Poster} alt="Poster" style={{ objectFit: 'cover', objectPosition: "top", width: "100%", height: "400px" }} />
+   <img src={Poster} alt="Poster" style={{ objectFit: 'cover', objectPosition: "center top", width: "80%", height: "400px", marginTop: "50px" }} />
       
    </div>
   

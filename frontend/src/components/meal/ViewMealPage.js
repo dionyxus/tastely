@@ -53,7 +53,7 @@ const ViewMealPage = (props) => {
     }, []);
 
     return (
-        <div>
+        <div className='ownerpage'>
             <div className="side-menu-bar">
                 <KitchenHeader />
             </div>
