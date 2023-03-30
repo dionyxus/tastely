@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import './DishesStyle.css';
 import UserBar from '../homepage/userheader';
 import { BACKEND_API } from '../../config';
+import Footer from '../files/footer/Footer';
+
 
 const DishPage = (props) => {
     //console.log(props);
@@ -21,8 +23,8 @@ const DishPage = (props) => {
             const dishesFromServer = await fetchDishes();
             let filteredDishes = dishesFromServer.filter((dish) => dish.kitchenId === props.loginUser._id);
             let dishesFixed = filteredDishes.map((dish) => {
-                    let dishFixed = { name: dish.name, description: dish.description, veg: dish.veg, id: dish._id };
-                    return dishFixed;
+                let dishFixed = { name: dish.name, description: dish.description, veg: dish.veg, id: dish._id, imageurl: dish.imageurl };
+                return dishFixed;
             });
             setDishes(dishesFixed);
         }
@@ -40,6 +42,7 @@ const DishPage = (props) => {
 
     const postDishes = async (dish) => {
         dish.kitchenId = props.loginUser._id;
+        console.log(dish);
         const res = await fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -77,12 +80,23 @@ const DishPage = (props) => {
             </div>
 
             <div className="user-header">
-        <UserBar />
-      </div>
-            <div className='container'>
-                <Header onAdd={() => setShowAddDish(!showAddDish)} showAdd={showAddDish} />
-                {showAddDish && <AddDish onAddDish={addDish} />}
-                <Dishes dishes={dishes} onDelete={deleteDish} />
+                <UserBar />
+            </div>
+
+            <div className='dishpage-container'>
+                <div className='dishform-container'>
+                    <h2>Add Dish</h2>
+                    <AddDish onAddDish={addDish} />
+                </div>
+
+                <div className='dishlist-container'>
+                    <h2>Dishes</h2>
+                    <Dishes dishes={dishes} onDelete={deleteDish} />
+                </div>
+            </div>
+
+            <div className="site-footer">
+                <Footer />
             </div>
         </div>
     )

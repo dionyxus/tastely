@@ -1,9 +1,16 @@
 
 const DishRow = ({ dish }) => {
     return (
-        <div className="task">
-            <h3>{dish.name} </h3>
-            <p>{dish.description}</p>
+        <div className="dishlist-view-card">
+
+        <div className="dishlist-view-card-head">
+            <img src={dish.imageurl} alt="DishImage" height="70px" />
+            <div>
+                <h3>{dish.name} </h3>
+                <p>{dish.description}</p>
+            </div>
+
+        </div>
         </div>
     )
 }

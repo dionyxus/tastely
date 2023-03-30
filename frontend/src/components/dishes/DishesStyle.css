@@ -110,3 +110,80 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
+
+/* B2B Dishes Styles */
+.dishpage-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px 100px;
+  min-height: 300px;
+  padding: 30px;
+}
+
+.dishform-container {
+  margin-right: 200px;
+  min-width: 500px;
+}
+
+.dishlist-container {
+  min-width: 500px;
+}
+
+.dishlist-card {
+  background: #E4E6C3;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.dishlist-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.dishlist-card-head-image-title{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dishlist-card-head-image-title img{
+  border-radius: 50%;
+}
+
+.dishlist-card p{
+  margin-top: 10px;
+}
+
+
+/* B2B Dishes Styles */
+.dishlist-view-container {
+  min-width: 500px;
+  max-width: 700px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid rgb(36, 4, 4);
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.dishlist-view-card {
+  background: #E4E6C3;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.dishlist-view-card-head {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.dishlist-view-card-head img{
+  border-radius: 50%;
+}
