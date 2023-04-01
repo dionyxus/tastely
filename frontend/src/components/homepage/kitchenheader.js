@@ -6,6 +6,8 @@ import {RxDashboard} from 'react-icons/rx';
 import {AiOutlineForm,AiOutlineUsergroupDelete,AiOutlineUser} from 'react-icons/ai';
 import {BiDish} from 'react-icons/bi';
 import {HiViewBoards} from 'react-icons/hi';
+import { FaTimes } from 'react-icons/fa';
+
 
 
 
@@ -22,10 +24,12 @@ const KitchenHeader = (props) => {
 
   return (
     <ul className="nav">
-      
+    <FaTimes className='cross'/>
       <div className="header-logo">
+      
       <a href="/owner"><img src={logo} alt="Logo" style={{  objectFit: 'contain', transform: 'scale(1.8x)' }} /></a>
       </div>
+      
       
       <NavLink to="/owner">Dashboard <RxDashboard/></NavLink>
       <NavLink to="/createplan">Create Plans <AiOutlineForm/></NavLink>

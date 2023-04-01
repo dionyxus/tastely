@@ -8,11 +8,12 @@
 	display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blueviolet;
+    background-color: #EEBE21;
 }
 
 .login-image img {
-	max-height: 400px;
+	max-height: 800px;
+	width: 75%;
 }
 
 .login-form {
@@ -65,6 +66,8 @@ label {
 .user-type input {
 	margin: 0px 5px;
 	height: auto;
+	display: inline-block;
+	width: auto;
 }
 
 .user-type {

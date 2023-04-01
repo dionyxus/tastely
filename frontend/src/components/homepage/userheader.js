@@ -1,5 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
 import { FaBell, FaEnvelope } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -7,6 +8,12 @@ import './userheader.css';
 import React from 'react';
 
 const UserBar = (props) => {
+
+  const [isActive, setIsActive] = useState(false);
+
+  function handleClick() {
+    setIsActive(!isActive);
+  }
 
     const [loginUser, setLoginUser] = useState({});
 
@@ -26,6 +33,7 @@ const UserBar = (props) => {
   return (
     <div className='pink-header'>
     <div className="search-bar">
+   
       <form>
         <label htmlFor="search-input">
           <FaSearch />
@@ -33,6 +41,7 @@ const UserBar = (props) => {
         <input type="text" id="search-input" name="search-input" placeholder="Search..." />
         
       </form>
+      <FaBars className='ham' onClick={handleClick}/>
     </div>
     <div class="side-header-details">
     <FaBell className='icon'/>
@@ -41,6 +50,8 @@ const UserBar = (props) => {
         <button onClick={handleLogout} className="my-button">
           <Link to="/Login">Logout</Link>
         </button>
+        
+
         </div>
         </div>
   );

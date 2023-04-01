@@ -93,7 +93,7 @@ const ShowPlan = (props) => {
         </div>
         
       </div>
-     
+     <Footer/>
     </div>
   );
 };

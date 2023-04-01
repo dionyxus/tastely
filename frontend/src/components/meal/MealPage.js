@@ -18,7 +18,7 @@ const MealPage = (props) => {
   };
 
   return (
-    <div>
+    <div className="homepage customer-side">
       <Header />
       <div className="" style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
         <br></br>
