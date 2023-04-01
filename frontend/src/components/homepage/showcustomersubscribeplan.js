@@ -16,7 +16,7 @@ const ShowCustomerSubscribePlan = (props) => {
   );
   const [apiSuccess, setApiSuccess] = useState(false);
 
-  
+
   useEffect(() => {
     const getShowCustomerSubscribePlans = async () => {
       try {
@@ -34,23 +34,23 @@ const ShowCustomerSubscribePlan = (props) => {
 
   return (
     <div className='ownerpage'>
-      
+
       <div className="side-menu-bar">
-          <KitchenHeader />
-        </div>
-        <div className="user-header">
+        <KitchenHeader />
+      </div>
+      <div className="user-header">
         <UserBar />
       </div>
-    
+
       <div className="page-content">
-      <h2 className='heading'> MY CUSTOMERS </h2>
-        <ul style={{alignItems: 'center'}}className="showplan-details">
+        <h2 className='heading'> MY CUSTOMERS </h2>
+        <ul style={{ alignItems: 'center' }} className="showplan-details">
           {showCustomerSubscribePlans.map((showCustomerSubscribePlan) => {
-//            console.log(showCustomerSubscribePlan);
+            //            console.log(showCustomerSubscribePlan);
             return props.loginUser.name ==
               showCustomerSubscribePlan.plan.username ? (
               <li key={showCustomerSubscribePlan._id}>
-              
+
                 <p>{showCustomerSubscribePlan.plan.name}</p>
                 <p style={{ color: 'orange', fontSize: '36px', padding: 12 }}>{showCustomerSubscribePlan.plan.price}</p>
                 <p>User Name - {showCustomerSubscribePlan.user.name}</p>
@@ -64,8 +64,10 @@ const ShowCustomerSubscribePlan = (props) => {
           })}
         </ul>
       </div>
-   
 
+      <div className="site-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

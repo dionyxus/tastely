@@ -12,7 +12,7 @@ import Footer from '../files/footer/Footer';
 const MyProfile = (props) => {
   const navigate = useNavigate();
 
-  
+
   function render() {
     if (props.loginUser.usertype === 'Owner') {
       return (
@@ -21,53 +21,55 @@ const MyProfile = (props) => {
             <KitchenHeader />
           </div>
           <div className="user-header">
-        <UserBar />
-      </div>
+            <UserBar />
+          </div>
           <div class="page-content">
-        <h1 className='heading'>MY KITCHEN PROFILE</h1>
-        <div class="profile-border-form">
-          <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
-          <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
-          <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
-          <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
-          <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
-        </div>
-        </div>
+            <h1 className='heading'>MY KITCHEN PROFILE</h1>
+            <div class="profile-border-form">
+              <p><span className='profile-key'>Name</span><span className='profile-info'>{props.loginUser.name}</span></p>
+              <p><span className='profile-key'>User Type</span><span className='profile-info'>{props.loginUser.usertype}</span></p>
+              <p><span className='profile-key'>Contact</span><span className='profile-info'>{props.loginUser.contact}</span></p>
+              <p><span className='profile-key'>Email</span><span className='profile-info'>{props.loginUser.email}</span></p>
+              <p><span className='profile-key'>Address</span><span className='profile-info'>{props.loginUser.address}</span></p>
+            </div>
+          </div>
 
-
+          <div className="site-footer">
+            <Footer />
+          </div>
         </div>
       );
     } else {
-      
 
-     
+
+
       return (
         <div className='homepage'>
-        <Header />
-        <div class="page-content">
-        <h1 className='heading'>MY PROFILE</h1>
-        <div class="profile-border-form">
-        <p><span className='profile-key'>Name</span><span className='profile-info'>{ props.loginUser.name}</span></p>
-        <p><span className='profile-key'>User Type</span><span className='profile-info'>{ props.loginUser.usertype}</span></p>
-        <p><span className='profile-key'>Contact</span><span className='profile-info'>{ props.loginUser.contact}</span></p>
-        <p><span className='profile-key'>Email</span><span className='profile-info'>{ props.loginUser.email}</span></p>
-        <p><span className='profile-key'>Address</span><span className='profile-info'>{ props.loginUser.address}</span></p>
-        </div>
-      </div>
-    <Footer/>
+          <Header />
+          <div class="page-content">
+            <h1 className='heading'>MY PROFILE</h1>
+            <div class="profile-border-form">
+              <p><span className='profile-key'>Name</span><span className='profile-info'>{props.loginUser.name}</span></p>
+              <p><span className='profile-key'>User Type</span><span className='profile-info'>{props.loginUser.usertype}</span></p>
+              <p><span className='profile-key'>Contact</span><span className='profile-info'>{props.loginUser.contact}</span></p>
+              <p><span className='profile-key'>Email</span><span className='profile-info'>{props.loginUser.email}</span></p>
+              <p><span className='profile-key'>Address</span><span className='profile-info'>{props.loginUser.address}</span></p>
+            </div>
+          </div>
+          <Footer />
 
-      </div>
+        </div>
       );
     }
   }
 
   return (
-    
-      <div>
-        {render()}
-       
-      </div>
-    
+
+    <div>
+      {render()}
+
+    </div>
+
   );
 };
 

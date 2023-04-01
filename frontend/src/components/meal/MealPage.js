@@ -26,7 +26,9 @@ const MealPage = (props) => {
         <br></br>
         <WeekCalender orderId={orderid} />
       </div>
-      
+      <div className="site-footer">
+                <Footer />
+            </div>
     </div>
   )
 }

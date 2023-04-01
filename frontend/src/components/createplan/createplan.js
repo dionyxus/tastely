@@ -103,8 +103,8 @@ const CreatePlan = (props) => {
       </div>
 
       <div className="user-header">
-      <UserBar />
-    </div>
+        <UserBar />
+      </div>
 
       <div className="page-content create-plan">
         <div class="createplan-form">
@@ -146,8 +146,8 @@ const CreatePlan = (props) => {
                     value={input.info}
                     onChange={(event) => handleFormChange(index, event)}
                   />
-                  <button  className='my-button3'  onClick={() => removeFields(index)}>Remove</button>
-                  <button className='my-button3'  onClick={addFields}>Add More</button>
+                  <button className='my-button3' onClick={() => removeFields(index)}>Remove</button>
+                  <button className='my-button3' onClick={addFields}>Add More</button>
                   <br></br>
                 </div>
               );
@@ -159,8 +159,10 @@ const CreatePlan = (props) => {
           </div>
         </div>
       </div>
-  
 
+      <div className="site-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -29,10 +29,8 @@ const KitchenHeader = (props) => {
       
       <NavLink to="/owner">Dashboard <RxDashboard/></NavLink>
       <NavLink to="/createplan">Create Plans <AiOutlineForm/></NavLink>
-      <NavLink to="/adddishes">Add Dishes <AiOutlineFolderAdd/></NavLink>
-      
       <NavLink to="/showplan">View Plans <HiViewBoards/></NavLink>
-      
+      <NavLink to="/adddishes">Add Dishes <AiOutlineFolderAdd/></NavLink>
 
       <NavLink
         to="/showcustomersubscribeplans"
