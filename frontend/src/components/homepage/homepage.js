@@ -21,7 +21,7 @@ const Homepage = (props) => {
     <div className="homepage customer-side">
    <Header />
    <div className='banner-image'>
-   <img src={Poster} alt="Poster" style={{ objectFit: 'cover', objectPosition: "center top", width: "60%", height: "400px", marginTop: "50px" }} />
+   <img src={Poster} alt="Poster" style={{ objectFit: 'cover', objectPosition: "center top", width: "60%", height: "200px", marginTop: "50px" }} />
       
    </div>
   

@@ -115,7 +115,7 @@ const Ownerpage = (props) => {
       <div className="site-footer">
        <Footer/>
       </div>
-<Footer/>
+
     </div>
 
 
