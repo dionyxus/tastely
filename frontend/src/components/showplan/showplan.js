@@ -75,15 +75,15 @@ const ShowPlan = (props) => {
                     })}
                   </ul>
                   <div class="show-plan-button">
-                  <button
-                   
-                    className="showplan-button my-button2"
-                    onClick={() => handleDeleteClick(showplan._id)}
-                  >
-                    Delete Plan
-                  </button>
+                    <button
+
+                      className="showplan-button my-button2"
+                      onClick={() => handleDeleteClick(showplan._id)}
+                    >
+                      Delete Plan
+                    </button>
                   </div>
-                  
+
                 </li>
               ) : (
                 ''
@@ -91,9 +91,11 @@ const ShowPlan = (props) => {
             })}
           </ul>
         </div>
-        
+
       </div>
-     <Footer/>
+      <div className="site-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const ViewDishes = (props) => {
         const getDishes = async () => {
             const dishesFromServer = await fetchDishes();
             let filteredDishes = dishesFromServer.filter((dish) => dish.kitchenId === props.kitchenId);
-            let dishesFixed = filteredDishes.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id }));
+            let dishesFixed = filteredDishes.map((dish) => ({ name: dish.name, description: dish.description, veg: dish.veg, id: dish._id, imageurl: dish.imageurl }));
             setDishes(dishesFixed);
         }
         getDishes();
@@ -29,7 +29,7 @@ const ViewDishes = (props) => {
     return (
         <div>
             <h2 className='heading' style={{textAlign: "center"}}>DISHES OFFERED</h2>
-            <div className='container'>
+            <div className='dishlist-view-container'>
                 <ViewDishList dishes={dishes} />
             </div>
         </div>

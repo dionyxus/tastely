@@ -6,6 +6,7 @@ import { FaBell, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import UserBar from '../homepage/userheader';
 import { BACKEND_API } from '../../config';
+import Footer from '../files/footer/Footer';
 
 const ViewMealPage = (props) => {
 
@@ -31,7 +32,7 @@ const ViewMealPage = (props) => {
         fetch(MEAL_API_URL)
             .then(res => res.json())
             .then(data => {
-                
+
                 data = data.filter(meal => meal.kitchenId === props.loginUser._id);
                 setMealsData(data);
                 let mealTilesArray = [];
@@ -59,11 +60,14 @@ const ViewMealPage = (props) => {
             </div>
 
             <div className="user-header">
-            <UserBar />
-          </div>
+                <UserBar />
+            </div>
             <br></br><br></br>
             <div className='container'>
                 {mealTiles}
+            </div>
+            <div className="site-footer">
+                <Footer />
             </div>
         </div>
     )
