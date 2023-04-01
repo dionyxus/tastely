@@ -146,3 +146,214 @@ html {
   font-size: 42px;
   margin-bottom: 24px;
 }
+
+@media (min-width: 768px) {
+ .ham {
+  display: none;
+ }
+
+ .cross {
+  display: none;
+ }
+}
+
+@media (max-width: 768px) {
+  .landing-image {
+    order: 2;
+  }
+
+  .login-signup {
+   
+    order: 1;
+  }
+
+  .landing-logo img {
+    height: auto;
+    margin-top: 0px;
+    max-width: 300px;
+  }
+
+  .login-image {
+    order: 2;
+  }
+
+  .side-menu-bar {
+    left: -300px;
+  }
+
+  .ownerpage {
+    padding-left: 0px;
+  }
+  .footer-info-left {
+    flex-direction: column;
+  }
+
+  .footer-info {
+   
+    grid-template-columns: 1fr;
+   gap: 10px;
+    text-align: center;
+  }
+
+  .footer-info-center {
+    order: 3;
+  }
+
+  .footer-info-right {
+    order: 2;
+  }
+
+  .user-header {
+   
+    padding: 10px 15px;
+    
+  }
+
+  .search-bar {
+    
+    width: 300px;
+    margin-right: 0px;
+  }
+
+  .pink-header {
+  
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-header h2 {
+   
+    font-size: 13px;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .my-button {
+    
+    padding: 6px 10px;
+    
+    font-size: 12px;
+   
+  }
+
+  .side-header-details svg {
+    font-size: 16px;
+  }
+
+  .search-bar {
+   
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-bar form {
+    width: 250px;
+  }
+
+  .side-header-details {
+    width: 100%;
+  }
+
+  .side-header-details svg {
+    font-size: 14px;
+  }
+  
+  .ham {
+    font-size: 20px;
+  }
+
+  .side-menu-bar.show-side-bar {
+    left: 0;
+    z-index: 999;
+    width: 100%;
+  }
+
+  .cross {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+  }
+
+  .heading {
+   
+    font-size: 28px;
+    
+  }
+
+  .dunamic-form {
+  
+    
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 0px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .showplan-details {
+   
+    grid-template-columns: 1fr;
+  
+  }
+
+  .profile-border-form {
+   
+    font-size: 15px;
+   
+    max-width: 100%;
+  }
+
+  .profile-info {
+   
+    word-wrap: anywhere;
+    text-align: left;
+  }
+
+  .profile-key {
+    width: 100px;
+    
+    /* border-left: 1px solid #000; */
+    min-width: 100px;
+  }
+
+  .homepage.customer-side .header-logo {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .customer-side .user-header {
+  
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .customer-side .header-logo img {
+    margin-bottom: 0px;
+  }
+
+  .customer-side .my-button {
+    width: 100%;
+  }
+
+  .customer-side h2 {
+    flex: inherit;
+  }
+
+  .customer-side .banner-image {
+    display: none;
+  }
+
+
+
+  
+  
+}
+
