@@ -94,7 +94,7 @@ const SingleUserKitchens = (props) => {
 
 
   return (
-    <div className="homepage">
+    <div className="homepage customer-side">
       <div>
 
 

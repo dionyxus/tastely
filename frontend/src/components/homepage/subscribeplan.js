@@ -45,7 +45,7 @@ const ShowSubscribePlan = (props) => {
   }, [apiSuccess]);
 
   return (
-    <div className="homepage">
+    <div className="homepage customer-side">
 
       <Header />
 
