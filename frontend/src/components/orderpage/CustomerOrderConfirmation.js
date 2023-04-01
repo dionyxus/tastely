@@ -48,10 +48,10 @@ const CustomerOrderConfirmation = (props) => {
   const [Address, setAddress] = useState(props.loginUser.address);
   const [PostalCode, setPostalCode] = useState(props.loginUser.postalcode);
   const [Contact, setContact] = useState(props.loginUser.contact);
-  const [CardHolder, cardholder] = useState("");
-  const [CardNum, cardnum] = useState("");
-  const [Expiry, expiry] = useState("");
-  const [CVV, cvv] = useState("");
+  const [CardHolder, cardholder] = useState("Amberdeep Singh");
+  const [CardNum, cardnum] = useState("4275 6289 9541 8282");
+  const [Expiry, expiry] = useState("09/25");
+  const [CVV, cvv] = useState("263");
 
   return (
     <div>
@@ -103,28 +103,28 @@ const CustomerOrderConfirmation = (props) => {
             </div><br></br>
 
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>CardHolder Name</label> */}
+              <label>Card Holder Name</label><br></br>
               <input type="text"
                 value={CardHolder}
                 onChange={(e) => cardholder(e.target.value)}
                 placeholder="CardHolder Name" />
             </div><br></br>
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>Card Number</label> */}
+              <label>Card Number</label><br></br>
               <input type="text"
                 value={CardNum}
                 onChange={(e) => cardnum(e.target.value)}
                 placeholder="Card Number" />
             </div><br></br>
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>Expiry Date</label> */}
+              <label>Expiry Date</label><br></br>
               <input type="integer"
                 value={Expiry}
                 onChange={(e) => expiry(e.target.value)}
                 placeholder="Expiry Date" />
             </div><br></br>
             <div className="form-col-12 form-col-md-6 form-col-lg-3">
-              {/* <label>CVV</label> */}
+              <label>CVV</label><br></br>
               <input type="integer"
                 value={CVV}
                 onChange={(e) => cvv(e.target.value)}
@@ -139,9 +139,6 @@ const CustomerOrderConfirmation = (props) => {
 
       </div>
 
-      <div className="site-footer">
-        <Footer />
-      </div>
     </div>
 
   )

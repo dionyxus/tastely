@@ -26,7 +26,7 @@ const DishSelect = ({ value, index, selectedDish, dishes }) => {
 
     return (
         <div>
-            <select
+            <select style={{fontSize:"16px"}}
                 value={selectedValue}
                 onChange={e => handleOnValueChange(e)}>
                 <option default hidden>Select a Dish</option>
@@ -82,7 +82,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
                 let dishName = dish.length > 0 ? dish[0].name : "None";
                 dishField.push(
                     <>
-                        <label>
+                        <label style={{fontSize:"20px"}}>
                             {"Dish " + (i + 1) + "   "}
                             <select>
                                 <option>{dishName}</option>
@@ -95,7 +95,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
                 showSaveButton = true;
                 dishField.push(
                     <>
-                        <label>
+                        <label style={{fontSize:"20px"}}>
                             {"Dish " + (i + 1) + "   "}
                             <DishSelect key={i} index={i} dishes={dishes} selectedDish={handleOnValueChange} />
                             <br></br>
