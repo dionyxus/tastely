@@ -41,10 +41,10 @@ const CustomerOrderConfirmation = (props) => {
   const [Address, setAddress] = useState(props.loginUser.address);
   const [PostalCode, setPostalCode] = useState(props.loginUser.postalcode);
   const [Contact, setContact] = useState(props.loginUser.contact);
-  const [CardHolder, cardholder] = useState('');
-  const [CardNum, cardnum] = useState('');
-  const [Expiry, expiry] = useState('');
-  const [CVV, cvv] = useState('');
+  const [CardHolder, cardholder] = useState("Amberdeep Singh");
+  const [CardNum, cardnum] = useState("4275 6289 9541 8282");
+  const [Expiry, expiry] = useState("09/25");
+  const [CVV, cvv] = useState("263");
 
   return (
     <div>
