@@ -6,60 +6,63 @@ import Footer from '../files/footer/Footer';
 import UserBar from '../homepage/userheader';
 import axios from 'axios';
 
-import { AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  AreaChart,
+  Area,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-const SUBSCRIPTION_API_URL = "http://localhost:8080/showcustomersubscribeplan";
-
+const SUBSCRIPTION_API_URL = 'http://localhost:8080/showcustomersubscribeplan';
 
 const Ownerpage = (props) => {
   // const navigate = useNavigate();
   // const loginUser = JSON.parse(localStorage.getItem('user'))._id;
   const [orderData, setOrderData] = useState();
   const [orderChartData, setChartOrderData] = useState();
-
+  const { isActive, setIsActive } = props;
 
   useEffect(() => {
-
-    axios(SUBSCRIPTION_API_URL)
-      .then(res => {
-        setOrderData(res.data);
-        console.log(res.data);
-        makeOrderChartData(res.data);
-      });
-
-
+    axios(SUBSCRIPTION_API_URL).then((res) => {
+      setOrderData(res.data);
+      console.log(res.data);
+      makeOrderChartData(res.data);
+    });
   }, []);
 
   const makeOrderChartData = (orderData) => {
-
     let chartData = [];
     let revenue = 0;
 
-    orderData.forEach(order => {
-
+    orderData.forEach((order) => {
       revenue += parseFloat(order.plan.price);
       chartData.push({
         date: order.date,
         orderPrice: parseFloat(order.plan.price),
-        totalRevenue: revenue
+        totalRevenue: revenue,
       });
 
       setChartOrderData(chartData);
     });
-
-  }
+  };
 
   return (
     <div className="ownerpage">
-      <div className="side-menu-bar">
-        <KitchenHeader />
+      <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+        <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="user-header">
-        <UserBar />
+        <UserBar isActive={isActive} setIsActive={setIsActive} />
       </div>
 
-      <div className='page-content'>
+      <div className="page-content">
         <h1>Sales</h1>
         <br></br>
 
@@ -102,23 +105,29 @@ const Ownerpage = (props) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Area type="monotone" dataKey="orderPrice" stackId="1" stroke="#8884d8" fill="#8884d8" />
-            <Area type="monotone" dataKey="totalRevenue" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+            <Area
+              type="monotone"
+              dataKey="orderPrice"
+              stackId="1"
+              stroke="#8884d8"
+              fill="#8884d8"
+            />
+            <Area
+              type="monotone"
+              dataKey="totalRevenue"
+              stackId="1"
+              stroke="#82ca9d"
+              fill="#82ca9d"
+            />
           </AreaChart>
         </ResponsiveContainer>
-
       </div>
-      <div>
-
-      </div>
+      <div></div>
 
       <div className="site-footer">
-       <Footer/>
+        <Footer />
       </div>
-
     </div>
-
-
   );
 };
 

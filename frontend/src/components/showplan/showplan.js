@@ -12,6 +12,7 @@ import Footer from '../files/footer/Footer';
 import UserBar from '../homepage/userheader';
 
 const ShowPlan = (props) => {
+  const { isActive, setIsActive } = props;
   const [showplans, setShowPlans] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
 
@@ -40,12 +41,13 @@ const ShowPlan = (props) => {
 
   return (
     <div className="ownerpage">
-      <div className="side-menu-bar">
-        <KitchenHeader />
+      <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}
+      >
+        <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="user-header">
-        <UserBar />
+        <UserBar isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="showPlans">

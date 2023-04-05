@@ -12,6 +12,8 @@ import Footer from '../files/footer/Footer';
 
 
 const DishPage = (props) => {
+
+    const { isActive, setIsActive } = props;
     //console.log(props);
     const API_URL = `${BACKEND_API}/api/v1/dishes/`;
 
@@ -75,12 +77,12 @@ const DishPage = (props) => {
 
     return (
         <div className="ownerpage">
-            <div className="side-menu-bar">
-                <KitchenHeader />
+            <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+                <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
             </div>
 
             <div className="user-header">
-                <UserBar />
+                <UserBar isActive={isActive} setIsActive={setIsActive}/>
             </div>
 
             <div className='dishpage-container'>

@@ -351,9 +351,36 @@ html {
     display: none;
   }
 
+  .form-control input {
+    width: 60%;
+  }
 
 
+  .dishpage-container {
+    flex-direction: column;
+  }
+
+  .dishlist-card-head {
+   
+    justify-content: left;
+    
+    flex-direction: column;
+  }
+
+  .dishlist-card {
+    
+    justify-content: left;
+    width: 65%;
+    
+  }
+
+  .btn-block {
+    width: 60%;
+  }
   
+  .form-control {
+    width: 60%;
+  }
   
 }
 

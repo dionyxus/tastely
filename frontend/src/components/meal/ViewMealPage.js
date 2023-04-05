@@ -9,6 +9,7 @@ import { BACKEND_API } from '../../config';
 import Footer from '../files/footer/Footer';
 
 const ViewMealPage = (props) => {
+    const { isActive, setIsActive } = props;
 
     const MEAL_API_URL = `${BACKEND_API}/api/v1/meal/`;
 
@@ -55,12 +56,12 @@ const ViewMealPage = (props) => {
 
     return (
         <div className='ownerpage'>
-            <div className="side-menu-bar">
-                <KitchenHeader />
+            <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+                <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
             </div>
 
             <div className="user-header">
-                <UserBar />
+                <UserBar isActive={isActive} setIsActive={setIsActive}/>
             </div>
             <br></br><br></br>
             <div className='container'>
