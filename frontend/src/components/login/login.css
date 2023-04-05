@@ -12,7 +12,8 @@
 }
 
 .login-image img {
-	max-height: 400px;
+	max-height: 800px;
+    width: auto
 }
 
 .login-form {

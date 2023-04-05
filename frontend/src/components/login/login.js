@@ -77,7 +77,7 @@ const Login = (props) => {
         <img src={landing} alt="Login Page" />
       </div>
       <div className="login-form login-form-2">
-        <h1 style={textStyle}>Welcome to Tastely</h1>
+        <h1 style={textStyle}>Welcome to Tastley</h1>
 
         <label  className="input-label">Email </label>
        

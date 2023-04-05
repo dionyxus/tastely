@@ -78,22 +78,24 @@ const DishPage = (props) => {
     return (
         <div className="ownerpage">
             <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
-                <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
+                <KitchenHeader isActive={isActive} setIsActive={setIsActive} />
             </div>
 
             <div className="user-header">
-                <UserBar isActive={isActive} setIsActive={setIsActive}/>
+                <UserBar isActive={isActive} setIsActive={setIsActive} />
             </div>
 
-            <div className='dishpage-container'>
-                <div className='dishform-container'>
-                    <h2>Add Dish</h2>
-                    <AddDish onAddDish={addDish} />
-                </div>
+            <div className='dishpage-content'>
+                <div className='dishpage-container'>
+                    <div className='dishform-container'>
+                        <h2>Add Dish</h2>
+                        <AddDish onAddDish={addDish} />
+                    </div>
 
-                <div className='dishlist-container'>
-                    <h2>Dishes</h2>
-                    <Dishes dishes={dishes} onDelete={deleteDish} />
+                    <div className='dishlist-container'>
+                        <h2>Dishes</h2>
+                        <Dishes dishes={dishes} onDelete={deleteDish} />
+                    </div>
                 </div>
             </div>
 

@@ -20,13 +20,13 @@ const CreatePlan = (props) => {
 
   const { isActive, setIsActive } = props;
   const [createPlan, setCreatePlan] = useState({
-    name: '',
+    name: 'Premium',
     price: '',
     user: '',
     username: '',
   });
 
-  const [dynamicFields, setDynamicFields] = useState([{ key: '', info: '' }]);
+  const [dynamicFields, setDynamicFields] = useState([{ key: 'Doorstep Delivery', info: 'Yes' }]);
 
   const handleFormChange = (index, event) => {
     let data = [...dynamicFields];

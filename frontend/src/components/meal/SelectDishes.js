@@ -82,22 +82,25 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
                 let dishName = dish.length > 0 ? dish[0].name : "None";
                 dishField.push(
                     <>
-                        <label style={{ fontSize: "20px" }}>
+                        <label style={{ fontSize: "24px" }}>
                             {"Dish " + (i + 1) + "   "}
                         </label>
-                        <select>
+                        <select style={{ fontSize: "16px" }}>
                             <option>{dishName}</option>
                         </select>
+                        <br></br>
+                        <br></br>
                     </>
                 );
             } else {
                 showSaveButton = true;
                 dishField.push(
                     <>
-                        <label style={{ fontSize: "20px" }}>
+                        <label style={{ fontSize: "24px" }}>
                             {"Dish " + (i + 1) + "   "}
                         </label>
                         <DishSelect key={i} index={i} dishes={dishes} selectedDish={handleOnValueChange} />
+                        <br></br>
                     </>
                 );
             }

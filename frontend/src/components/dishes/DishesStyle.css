@@ -113,13 +113,17 @@ footer {
 }
 
 /* B2B Dishes Styles */
+.dishpage-content{
+  justify-content: center;
+  display: flex;
+}
+
 .dishpage-container {
   display: flex;
-  max-width: 1200px;
   margin: 30px 10px;
   min-height: 300px;
   padding: 30px;
-  height: 650px
+  height: 80vh;
 }
 
 .dishform-container {
@@ -145,17 +149,17 @@ footer {
   margin-top: 5px;
 }
 
-.dishlist-card-head-image-title{
+.dishlist-card-head-image-title {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.dishlist-card-head-image-title img{
+.dishlist-card-head-image-title img {
   border-radius: 50%;
 }
 
-.dishlist-card p{
+.dishlist-card p {
   margin-top: 10px;
 }
 
@@ -186,6 +190,6 @@ footer {
   gap: 20px;
 }
 
-.dishlist-view-card-head img{
+.dishlist-view-card-head img {
   border-radius: 50%;
 }

@@ -4,8 +4,8 @@ import { initializeApp } from "firebase/app";
 
 
 const AddDish = ({ onAddDish }) => {
-    const [name, setName] = useState("");
-    const [desc, setDesc] = useState("");
+    const [name, setName] = useState("Chicken Rice");
+    const [desc, setDesc] = useState("Butter chicken served with white rice");
     const [veg, setVeg] = useState(false);
     const [imageInput, setImageInput] = useState();
     const imageInputRef = useRef();
