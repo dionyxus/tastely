@@ -17,6 +17,8 @@ import Footer from '../files/footer/Footer';
 
 
 const CreatePlan = (props) => {
+
+  const { isActive, setIsActive } = props;
   const [createPlan, setCreatePlan] = useState({
     name: '',
     price: '',
@@ -98,12 +100,12 @@ const CreatePlan = (props) => {
 
   return (
     <div className="ownerpage">
-      <div className="side-menu-bar">
-        <KitchenHeader />
+      <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+        <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="user-header">
-        <UserBar />
+        <UserBar isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="page-content create-plan">

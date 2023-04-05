@@ -16,7 +16,6 @@ import LandingPage from './components/homepage/landingpage';
 import UserBar from './components/homepage/userheader';
 // import { Footer } from './components/files'
 
-
 // import Header from './components/homepage/header';
 
 import './App.css';
@@ -31,55 +30,175 @@ import ViewMealPage from './components/meal/ViewMealPage';
 //import KitchenHeader from './components/homepage/kitchenheader';
 
 const App = (props) => {
-
+  const [isActive, setIsActive] = useState(false);
   const [loginUser, setLoginUser] = useState({});
   const [kitchenOwner, setKitchenOwner] = useState();
 
-
-
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-      setLoginUser(user)
+      setLoginUser(user);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="App">
-
-    
       <Router>
         <Routes>
-
           {/* akfbakbfa*/}
-          <Route exact path="/" element={<LandingPage loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/allkitchens" element={<AllKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} loginUser={loginUser} setLoginUser={setLoginUser}/>} />
-          <Route exact path="/singleuserkitchens/:userid" element={<SingleUserKitchens kitchenOwner={kitchenOwner} setKitchenOwner={setKitchenOwner} loginUser={loginUser} setLoginUser={setLoginUser}/>} />
-          <Route exact path="/home" element={<Homepage loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/owner" element={<Ownerpage loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/header" element={<Header loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/register" element={<Register loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/createplan" element={<CreatePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/showplan" element={<ShowPlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/myprofile" element={<MyProfile loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/showsubscribeplans/:userid" element={<ShowSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/showcustomersubscribeplans" element={<ShowCustomerSubscribePlan loginUser={loginUser} setLoginUser={setLoginUser} />} />
-          <Route exact path="/customerorder/:planid" element={<CustomerOrderConfirmation loginUser={loginUser} />} />
-          <Route exact path="/setmealpage/:orderid" element={<MealPage loginUser={loginUser} />} />
-          <Route exact path="/adddishes/" element={<DishPage loginUser={loginUser} />} />
-          <Route exact path="/viewmealpage/" element={<ViewMealPage loginUser={loginUser} />} />
-          <Route exact path="/userheader" element={<UserBar loginUser={loginUser} setLoginUser={setLoginUser}/>} />
-
-
+          <Route
+            exact
+            path="/"
+            element={
+              <LandingPage loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            element={
+              <Login loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/allkitchens"
+            element={
+              <AllKitchens
+                kitchenOwner={kitchenOwner}
+                setKitchenOwner={setKitchenOwner}
+                loginUser={loginUser}
+                setLoginUser={setLoginUser}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/singleuserkitchens/:userid"
+            element={
+              <SingleUserKitchens
+                kitchenOwner={kitchenOwner}
+                setKitchenOwner={setKitchenOwner}
+                loginUser={loginUser}
+                setLoginUser={setLoginUser}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/home"
+            element={
+              <Homepage loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/owner"
+            element={
+              <Ownerpage
+                loginUser={loginUser}
+                setLoginUser={setLoginUser}
+                isActive={isActive}
+                setIsActive={setIsActive}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/header"
+            element={
+              <Header loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            element={
+              <Login loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/register"
+            element={
+              <Register loginUser={loginUser} setLoginUser={setLoginUser} />
+            }
+          />
+          <Route
+            exact
+            path="/createplan"
+            element={
+              <CreatePlan loginUser={loginUser} setLoginUser={setLoginUser}  isActive={isActive}
+              setIsActive={setIsActive}/>
+            }
+          />
+          <Route
+            exact
+            path="/showplan"
+            element={
+              <ShowPlan loginUser={loginUser} setLoginUser={setLoginUser} isActive={isActive}
+              setIsActive={setIsActive}/>
+            }
+          />
+          <Route
+            exact
+            path="/myprofile"
+            element={
+              <MyProfile loginUser={loginUser} setLoginUser={setLoginUser} isActive={isActive}
+              setIsActive={setIsActive}/>
+            }
+          />
+          <Route
+            exact
+            path="/showsubscribeplans/:userid"
+            element={
+              <ShowSubscribePlan
+                loginUser={loginUser}
+                setLoginUser={setLoginUser}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/showcustomersubscribeplans"
+            element={
+              <ShowCustomerSubscribePlan
+                loginUser={loginUser}
+                setLoginUser={setLoginUser}
+                isActive={isActive} setIsActive={setIsActive}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/customerorder/:planid"
+            element={<CustomerOrderConfirmation loginUser={loginUser} />}
+          />
+          <Route
+            exact
+            path="/setmealpage/:orderid"
+            element={<MealPage loginUser={loginUser} />}
+          />
+          <Route
+            exact
+            path="/adddishes/"
+            element={<DishPage loginUser={loginUser}  isActive={isActive} setIsActive={setIsActive}/>}
+          />
+          <Route
+            exact
+            path="/viewmealpage/"
+            element={<ViewMealPage loginUser={loginUser} isActive={isActive} setIsActive={setIsActive}/>}
+          />
         </Routes>
       </Router>
-
     </div>
   );
-}
+};
 
 export default App;
 
+{/*const { isActive, setIsActive } = props;
 
+className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}
+
+isActive={isActive} setIsActive={setIsActive} */}

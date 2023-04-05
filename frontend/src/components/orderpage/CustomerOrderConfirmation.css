@@ -1,64 +1,57 @@
- h2{
-    color: black;
-    font-weight: bold;
-    font-size: 30px;
-   }
-.orderconfirm{
-    display: flex;
-    text-align: center;
+ h2 {
+   color: black;
+   font-weight: bold;
+   font-size: 30px;
+ }
+
+ .orderconfirm {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   /* background: lightblue; */
+   padding: 20px 100px;
+   justify-content: center;
+   gap: 80px;
+   height: 800px;
+ }
+
+ input {
+   height: 40px;
+   border-radius: 4px;
+   border: 1px solid black;
+   box-shadow: none;
+   padding: 0px 10px;
+ }
+
+ input[type="text"]:hover {
+
+   border: solid black 2px;
+ }
+
+ .form-container {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   border: none;
+ }
+
+ .control {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
 
 
-}
-input {
-  height: 40px;
- border-radius: 4px;
- border: 1px solid black;
- box-shadow: none;
- margin-bottom: 15px;
- padding: 0px 10px;
- width: 300px;
-  }
-
-  input[type="text"]:hover{
- 
-    border: solid black 2px;
-  }
-
-.container1{
-    display: flex;
-    width: 50%;
-    height: 70px;
-    padding: 20px;
-    margin-left: 200px; 
-    justify-content: left;
-
-} 
-.container2{
-    display: flex;
-    width: 50%;
-    height: 70px;
-    padding: 20px;
-    margin-left: -50px; 
-    justify-content: left;
-
-
-}
-
-/* .container3 {
+ /* .container3 {
     position: fixed;
     height: 500px; /* Just an example height 
     bottom: 0;
   } */
-  
-  .click {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: -50px;
 
-  }
+ .click {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   margin-top: -50px;
 
-  
- 
- 
+ }

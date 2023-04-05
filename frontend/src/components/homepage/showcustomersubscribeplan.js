@@ -11,6 +11,7 @@ import Footer from '../files/footer/Footer';
 // import { Link, Outlet } from 'react-router-dom';
 
 const ShowCustomerSubscribePlan = (props) => {
+  const { isActive, setIsActive } = props;
   const [showCustomerSubscribePlans, setShowCustomerSubscribePlans] = useState(
     [],
   );
@@ -35,11 +36,11 @@ const ShowCustomerSubscribePlan = (props) => {
   return (
     <div className='ownerpage'>
 
-      <div className="side-menu-bar">
-        <KitchenHeader />
+      <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+        <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
       </div>
       <div className="user-header">
-        <UserBar />
+        <UserBar isActive={isActive} setIsActive={setIsActive}/>
       </div>
 
       <div className="page-content">

@@ -18,6 +18,7 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  height: 700px;
 }
 
 .header {
@@ -115,13 +116,14 @@ footer {
 .dishpage-container {
   display: flex;
   max-width: 1200px;
-  margin: 30px 100px;
+  margin: 30px 10px;
   min-height: 300px;
   padding: 30px;
+  height: 650px
 }
 
 .dishform-container {
-  margin-right: 200px;
+  margin-right: 100px;
   min-width: 500px;
 }
 

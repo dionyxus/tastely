@@ -26,7 +26,7 @@ const DishSelect = ({ value, index, selectedDish, dishes }) => {
 
     return (
         <div>
-            <select style={{fontSize:"16px"}}
+            <select style={{ fontSize: "16px" }}
                 value={selectedValue}
                 onChange={e => handleOnValueChange(e)}>
                 <option default hidden>Select a Dish</option>
@@ -71,7 +71,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
 
     }, []);
 
-    
+
 
     const makeDishesMenu = () => {
 
@@ -82,24 +82,22 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
                 let dishName = dish.length > 0 ? dish[0].name : "None";
                 dishField.push(
                     <>
-                        <label style={{fontSize:"20px"}}>
+                        <label style={{ fontSize: "20px" }}>
                             {"Dish " + (i + 1) + "   "}
-                            <select>
-                                <option>{dishName}</option>
-                            </select>
-                            <br></br>
                         </label>
+                        <select>
+                            <option>{dishName}</option>
+                        </select>
                     </>
                 );
             } else {
                 showSaveButton = true;
                 dishField.push(
                     <>
-                        <label style={{fontSize:"20px"}}>
+                        <label style={{ fontSize: "20px" }}>
                             {"Dish " + (i + 1) + "   "}
-                            <DishSelect key={i} index={i} dishes={dishes} selectedDish={handleOnValueChange} />
-                            <br></br>
                         </label>
+                        <DishSelect key={i} index={i} dishes={dishes} selectedDish={handleOnValueChange} />
                     </>
                 );
             }
@@ -108,7 +106,7 @@ const SelectDishes = ({ data, onClickSave, noOfDishes, kitchenId }) => {
     }
 
     return (
-        <div style={{marginLeft: "auto",marginRight:"auto", width:"50%"}}>
+        <div className="mealDishItem">
             {makeDishesMenu()}
             {showSaveButton && <Button text={"Save"} onClick={onClick} />}
         </div>

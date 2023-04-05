@@ -41,9 +41,7 @@ const Header = (props) => {
       <a href="/home"><img src={logo} alt="Logo" style={{ objectFit: 'contain', transform: 'scale(1.8x)' }} /></a>
       </div>
 
-        <NavLink to="/home">
-          <FaHome style={{ fill: '#000' }}size={24} className="icon"/>
-        </NavLink>
+       
         <NavLink to="/myprofile">
           {' '}
           <FaUser style={{ fill: '#000' }} size={21} className="icon"/>

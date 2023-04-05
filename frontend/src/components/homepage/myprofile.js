@@ -11,17 +11,18 @@ import Footer from '../files/footer/Footer';
 
 const MyProfile = (props) => {
   const navigate = useNavigate();
+  const { isActive, setIsActive } = props;
 
 
   function render() {
     if (props.loginUser.usertype === 'Owner') {
       return (
         <div className='ownerpage'>
-          <div className="side-menu-bar">
-            <KitchenHeader />
+          <div className={`${isActive ? 'show-side-bar' : ''} side-menu-bar`}>
+            <KitchenHeader isActive={isActive} setIsActive={setIsActive}/>
           </div>
           <div className="user-header">
-            <UserBar />
+            <UserBar isActive={isActive} setIsActive={setIsActive}/>
           </div>
           <div class="page-content">
             <h1 className='heading'>MY KITCHEN PROFILE</h1>
