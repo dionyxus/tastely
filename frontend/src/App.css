@@ -160,6 +160,7 @@ html {
 @media (max-width: 768px) {
   .landing-image {
     order: 2;
+    
   }
 
   .login-signup {
@@ -175,6 +176,7 @@ html {
 
   .login-image {
     order: 2;
+    width: 350px;
   }
 
   .side-menu-bar {
@@ -316,10 +318,10 @@ html {
 
   .profile-key {
     width: 100px;
-    
-    /* border-left: 1px solid #000; */
     min-width: 100px;
   }
+
+  
 
   .homepage.customer-side .header-logo {
     position: relative;
@@ -381,6 +383,9 @@ html {
   .form-control {
     width: 60%;
   }
+
+  
+  
   
 }
 

@@ -58,3 +58,21 @@
    margin-top: -50px;
 
  }
+
+ @media (max-width: 768px) {
+
+  .orderconfirm {
+    padding: 20px 30px;
+    gap: 80px;
+    height: 75vh;
+    width: auto;
+    margin: 180px auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+
+    width: 300px;
+  }
+ }
