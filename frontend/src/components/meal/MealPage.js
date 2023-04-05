@@ -20,7 +20,7 @@ const MealPage = (props) => {
   return (
     <div className="homepage customer-side">
       <Header />
-      <div className="set-meals- section" style={{marginLeft: "auto",marginRight:"auto", width:"50%", height: "900px"}}>
+      <div className="set-meals- section" style={{marginLeft: "auto",marginRight:"auto", width:"50%", height: "650px"}}>
         <br></br>
         <h2 style={{textAlign:"center"}}>Set Meals</h2>
         <br></br>

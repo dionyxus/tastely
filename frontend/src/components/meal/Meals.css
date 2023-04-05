@@ -1,0 +1,21 @@
+.mealDishContainer {
+    max-width: 500px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 1px solid rgb(27, 0, 0);
+    padding: 30px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+
+.containerText {
+    text-align: center;
+
+}
+
+.mealDishItem {
+    margin: 0 auto;
+    width: min-content;
+}

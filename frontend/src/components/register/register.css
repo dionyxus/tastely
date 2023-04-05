@@ -8,12 +8,12 @@
 	display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EEBE21;
+    background-color: #F05D23;
 }
 
 .login-image img {
 	max-height: 800px;
-	width: 75%;
+	width: 60%;
 }
 
 .login-form {

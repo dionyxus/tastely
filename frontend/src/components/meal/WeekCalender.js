@@ -2,6 +2,7 @@ import WeekButton from "./WeekButton";
 import { useState, useEffect } from "react";
 import SelectDishes from "./SelectDishes";
 import { BACKEND_API } from "../../config";
+import './Meals.css';
 
 const WeekCalender = ({ orderId }) => {
 
@@ -169,13 +170,16 @@ const WeekCalender = ({ orderId }) => {
 
     return (
         <div>
-            <h3 style={{textAlign:"center"}}>{weekStartDate} - {weekEndDate}</h3>
+            <h3 style={{ textAlign: "center" }}>{weekStartDate} - {weekEndDate}</h3>
             {allMealData.map(meal => <WeekButton data={meal} color={meal.color} key={meal.id} text={meal.dayText} onClick={onWeekButtonClick} />)}
             {/* {makeWeekCal()} */}
-            <div className="container">
+            <div className="mealDishContainer">
                 <br></br>
                 <br></br>
                 {enableDishesComp && <SelectDishes data={mealData} kitchenId={userInfo.plan.user} noOfDishes={noOfDishes} onClickSave={onSaveButtonClick} />}
+                <h4 className="containerText">
+                    {enableDishesComp ? null : "Please select a date to set meal."}
+                </h4>
                 <br></br>
             </div>
         </div>
