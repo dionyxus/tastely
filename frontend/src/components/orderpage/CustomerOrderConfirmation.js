@@ -47,7 +47,8 @@ const CustomerOrderConfirmation = (props) => {
   const [CVV, cvv] = useState("263");
 
   return (
-    <div>
+    <div className="homepage customer-side">
+    
       <Header />
 
       <div className="orderconfirm">

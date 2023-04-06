@@ -26,3 +26,15 @@
     margin: 0 auto;
     width: min-content;
 }
+
+@media (max-width: 768px) {
+.mealPage {
+    
+    height: 150vh;
+  }
+
+  .dishlist-view-container {
+	min-width: 300px;
+	
+}
+}
